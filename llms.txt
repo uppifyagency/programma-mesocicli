@@ -1,0 +1,11 @@
+# Programma Mesocicli
+
+> Generatore open source (MIT) di mesocicli di specializzazione per l'ipertrofia, in italiano. Web app statica senza account e senza backend: i dati restano nel browser.
+
+Il metodo: si scelgono due distretti muscolari target per un blocco di 8-16 settimane; il volume dei target sale verso il massimo produttivo (con riferimenti MEV/MAV/MRV per distretto), il resto del corpo resta a mantenimento. Cinque sedute a settimana, ogni esercizio ha un ruolo (madre 4×6-8 ER20, meccanici 3×8-10 ER15, isolamenti 3×10-12 con squeeze). La progressione è double progression sul log: carico, ripetizioni totali e RPE registrati, e la settimana successiva si batte il log. Il piano nutrizionale calcola BMR e TDEE dai dati dell'utente e imposta un deficit di circa 625 kcal con weekend flessibile.
+
+## Pagine
+
+- [Landing](https://uppifyagency.github.io/programma-mesocicli/): il metodo, come funziona, FAQ
+- [App](https://uppifyagency.github.io/programma-mesocicli/app/): il generatore interattivo
+- [Repository](https://github.com/uppifyagency/programma-mesocicli): codice sorgente, licenza MIT

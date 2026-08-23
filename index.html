@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programma Mesocicli · generatore di mesocicli di specializzazione</title>
+<meta name="description" content="Scegli due distretti target e ottieni un mesociclo completo: 5 sedute, esercizi intercambiabili, volumi contro MEV/MAV/MRV, piano nutrizionale. Open source, gratis, senza account.">
+<link rel="canonical" href="https://uppifyagency.github.io/programma-mesocicli/">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Programma Mesocicli">
+<meta property="og:title" content="Programma Mesocicli · generatore di mesocicli di specializzazione">
+<meta property="og:description" content="Due distretti target, cinque sedute, un log da battere. Generatore open source di mesocicli di specializzazione per l'ipertrofia.">
+<meta property="og:url" content="https://uppifyagency.github.io/programma-mesocicli/">
+<meta property="og:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Programma Mesocicli: due distretti target, cinque sedute, un log da battere">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Programma Mesocicli">
+<meta name="twitter:description" content="Generatore open source di mesocicli di specializzazione: 5 sedute, esercizi intercambiabili, volumi MEV/MAV/MRV, nutrizione.">
+<meta name="twitter:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Programma Mesocicli",
+  "url": "https://uppifyagency.github.io/programma-mesocicli/",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "it",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
+  "description": "Generatore di mesocicli di specializzazione per l'ipertrofia: due distretti target, cinque sedute, esercizi intercambiabili, volumi di riferimento e piano nutrizionale."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Programma Mesocicli è gratis?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è su GitHub."}},
+    {"@type": "Question", "name": "Che cos'è un mesociclo di specializzazione?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Un blocco di 8-16 settimane in cui il volume di allenamento si concentra su due distretti muscolari scelti (i target), mentre tutti gli altri scendono a un volume di mantenimento."}},
+    {"@type": "Question", "name": "Dove finiscono i miei dati?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Restano nel tuo browser (localStorage). L'app non ha backend, non invia nulla a nessun server e funziona anche offline dopo il primo caricamento."}},
+    {"@type": "Question", "name": "Come funziona la progressione?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Double progression sul log: registri carico, ripetizioni totali e RPE di ogni esercizio; la settimana dopo cerchi di battere il log, aumentando le ripetizioni a parità di carico e poi il carico quando superi il range."}},
+    {"@type": "Question", "name": "Posso cambiare gli esercizi proposti?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). I parametri si adattano al ruolo dell'esercizio scelto."}},
+    {"@type": "Question", "name": "Serve installare qualcosa?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. È una pagina web statica: si apre nel browser, anche da file locale. Puoi clonare il repository e aprire app/index.html senza build né dipendenze."}}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#7B8794;
+  --line:#D5DAE0; --accent:#D9560B; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
+  --ok:#2E7D46; --warn:#B07C0A; --crit:#B3362A;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#77828D;
+    --line:#313A44; --accent:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+    --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--bg); color:var(--ink); font-family:Barlow,system-ui,sans-serif; font-size:16px; line-height:1.55;}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif; margin:0; text-wrap:balance; text-transform:uppercase; letter-spacing:.01em;}
+h1{font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.02;}
+h2{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700;}
+h3{font-size:1.1rem; font-weight:700; letter-spacing:.04em;}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+.wrap{max-width:1100px; margin:0 auto; padding:0 20px;}
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent); color:var(--accent-ink); padding:8px 14px; z-index:99;}
+.skip:focus{left:12px; top:12px;}
+header.site{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line);}
+.nav{display:flex; align-items:center; gap:18px; padding:12px 0; flex-wrap:wrap;}
+.brand{display:flex; align-items:center; gap:9px; font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; font-size:1.15rem; color:var(--ink); text-decoration:none; letter-spacing:.03em;}
+.brand svg{flex:0 0 auto}
+.nav nav{display:flex; gap:16px; flex-wrap:wrap; margin-left:auto;}
+.nav nav a{color:var(--ink2); text-decoration:none; font-size:.94rem;}
+.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:11px 22px; font-size:1.05rem; border:2px solid var(--accent);}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
+.btn:focus-visible, a:focus-visible, summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.hero{padding:64px 0 40px; display:grid; grid-template-columns:1.15fr .85fr; gap:36px; align-items:center;}
+@media (max-width:860px){ .hero{grid-template-columns:1fr; padding-top:40px;} }
+.hero .kicker{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px;}
+.hero p.lead{font-size:1.15rem; color:var(--ink2); max-width:52ch;}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;}
+.hero .fine{font-size:.85rem; color:var(--ink3); margin-top:14px;}
+.mock{background:var(--surface); border:1px solid var(--line); padding:18px;}
+.mock .mk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:10px;}
+.mock .mk-head b{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; font-size:1rem;}
+.mock .mk-head span{font-family:"IBM Plex Mono",monospace; font-size:.75rem; color:var(--ink3);}
+.mock table{width:100%; border-collapse:collapse; font-size:.78rem;}
+.mock td{padding:5px 4px; border-bottom:1px solid var(--line);}
+.mock td:last-child{text-align:right; font-family:"IBM Plex Mono",monospace; color:var(--ink2); white-space:nowrap;}
+.mock .tagx{display:inline-block; background:var(--accent-soft); border:1px solid var(--accent); font-size:.62rem; padding:0 5px; text-transform:uppercase; font-family:"Barlow Condensed",sans-serif; font-weight:600; margin-left:5px;}
+.mock .bars{margin-top:12px;}
+.mock .brow{display:grid; grid-template-columns:78px 1fr 34px; gap:8px; align-items:center; font-size:.72rem; padding:3px 0;}
+.mock .brow .lbl{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; font-weight:600;}
+.mock .track{position:relative; height:10px; background:var(--surface2); border:1px solid var(--line);}
+.mock .fill{position:absolute; inset:0 auto 0 0;}
+.mock .tick{position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--ink3);}
+.mock .brow .num{font-family:"IBM Plex Mono",monospace; text-align:right; color:var(--ink2);}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:26px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+@media (max-width:700px){ .stats{grid-template-columns:repeat(2,1fr);} }
+.stat .n{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:2.2rem; color:var(--accent); line-height:1;}
+.stat .l{font-size:.85rem; color:var(--ink2); text-transform:uppercase; letter-spacing:.05em; font-family:"Barlow Condensed",sans-serif; font-weight:600;}
+section{padding:52px 0;}
+section .eyebrow{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
+@media (max-width:860px){ .cards{grid-template-columns:1fr;} }
+.card{background:var(--surface); border:1px solid var(--line); padding:20px;}
+.card .num{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.8rem; margin-bottom:8px;}
+.card p{color:var(--ink2); font-size:.95rem;}
+table.params{border-collapse:collapse; width:100%; margin-top:22px; font-size:.95rem; background:var(--surface);}
+table.params th{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:.8rem; color:var(--ink2); text-align:left; padding:10px 12px; border-bottom:2px solid var(--ink);}
+table.params td{padding:10px 12px; border-bottom:1px solid var(--line);}
+table.params td.mono{white-space:nowrap;}
+.tablewrap{overflow-x:auto; border:1px solid var(--line);}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; margin-top:20px;}
+@media (max-width:860px){ .split{grid-template-columns:1fr;} }
+ul.checks{list-style:none; padding:0; margin:14px 0 0;}
+ul.checks li{padding:7px 0 7px 26px; position:relative; color:var(--ink2);}
+ul.checks li::before{content:""; position:absolute; left:2px; top:14px; width:12px; height:12px; background:var(--accent);}
+ul.checks li b{color:var(--ink)}
+.oss{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); padding:26px;}
+.faq details{background:var(--surface); border:1px solid var(--line); margin-top:10px;}
+.faq summary{cursor:pointer; padding:14px 18px; font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1rem;}
+.faq details[open] summary{border-bottom:1px solid var(--line);}
+.faq .a{padding:12px 18px 16px; color:var(--ink2); font-size:.95rem;}
+footer.site{border-top:1px solid var(--line); padding:28px 0 48px; color:var(--ink3); font-size:.85rem;}
+footer.site a{color:var(--ink2)}
+.footgrid{display:flex; gap:24px; flex-wrap:wrap; justify-content:space-between;}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Salta al contenuto</a>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Programma Mesocicli, torna in cima">
+      <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="var(--accent)"/><rect x="12" y="38" width="8" height="14" fill="#fff"/><rect x="24" y="28" width="8" height="24" fill="#fff"/><rect x="36" y="18" width="8" height="34" fill="#fff"/><rect x="48" y="10" width="4" height="42" fill="#fff" opacity=".55"/></svg>
+      Programma Mesocicli
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="#metodo">Il metodo</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#nutrizione">Nutrizione</a>
+      <a href="#open-source">Open source</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <div class="kicker">Generatore di mesocicli · open source</div>
+      <h1>Due distretti target.<br>Cinque sedute.<br><span style="color:var(--accent)">Un log da battere.</span></h1>
+      <p class="lead">Scegli i due gruppi muscolari su cui vuoi crescere: il generatore concentra lì il volume, tiene il resto in mantenimento e ti consegna la settimana completa, esercizio per esercizio, con serie, ripetizioni, recuperi e piano calorico.</p>
+      <div class="cta">
+        <a class="btn" href="app/">Apri l'app</a>
+        <a class="btn ghost" href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">Codice su GitHub</a>
+      </div>
+      <p class="fine">Gratis · nessun account · i dati restano nel tuo browser</p>
+    </div>
+    <div class="mock" role="img" aria-label="Anteprima dell'app: tabella di una seduta e barre dei volumi per distretto">
+      <div class="mk-head"><b>Sessione 1 · Petto · giorno 1</b><span>19 serie</span></div>
+      <table>
+        <tr><td>Chest press inclinata<span class="tagx">madre</span></td><td>4 × 6-8 · ER 20</td></tr>
+        <tr><td>Chest press verticale</td><td>3 × 8-10 · ER 15</td></tr>
+        <tr><td>Croci pec deck</td><td>3 × 10-12 · SQUEEZE</td></tr>
+        <tr><td>Alzate laterali</td><td>3 × 10-12 · 60-90″</td></tr>
+      </table>
+      <div class="bars" aria-hidden="true">
+        <div class="brow"><span class="lbl">Petto</span><span class="track"><span class="fill" style="width:82%;background:var(--accent)"></span><span class="tick" style="left:36%"></span><span class="tick" style="left:64%"></span></span><span class="num">19</span></div>
+        <div class="brow"><span class="lbl">Glutei</span><span class="track"><span class="fill" style="width:60%;background:var(--accent)"></span><span class="tick" style="left:22%"></span><span class="tick" style="left:48%"></span></span><span class="num">13</span></div>
+        <div class="brow"><span class="lbl">Dorso</span><span class="track"><span class="fill" style="width:42%;background:var(--ok)"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:62%"></span></span><span class="num">10</span></div>
+        <div class="brow"><span class="lbl">Bicipiti</span><span class="track"><span class="fill" style="width:16%;background:var(--warn)"></span><span class="tick" style="left:24%"></span><span class="tick" style="left:50%"></span></span><span class="num">3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats" aria-label="Numeri chiave">
+    <div class="stat"><div class="n">2</div><div class="l">distretti target</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">sedute a settimana</div></div>
+    <div class="stat"><div class="n">8-16</div><div class="l">settimane</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">account richiesti</div></div>
+  </div>
+
+  <section id="metodo" aria-labelledby="h-metodo">
+    <div class="eyebrow">Il metodo</div>
+    <h2 id="h-metodo">Specializzazione, ruoli, log</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Due target, il resto in mantenimento</h3>
+        <p>Non si cresce ovunque insieme. Il generatore alza il volume dei due distretti scelti verso il loro massimo produttivo e taglia gli altri al minimo che ne conserva i guadagni. Ogni target compare due volte a settimana.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Ogni esercizio ha un ruolo</h3>
+        <p>La seduta si apre con un esercizio madre pesante, prosegue con i meccanici e chiude con gli isolamenti in contrazione di picco. Ogni ruolo porta con sé serie, range di ripetizioni, recupero e ripetizioni efficaci (ER).</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>La progressione è il log</h3>
+        <p>Ogni serie si chiude vicino al cedimento e finisce nel log: carico, ripetizioni totali, RPE. La settimana dopo l'obiettivo è uno: battere il log. Prima salgono le ripetizioni, poi sale il carico.</p>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table class="params">
+        <caption class="mono" style="text-align:left; padding:10px 12px; color:var(--ink3); font-size:.78rem;">Parametri per ruolo</caption>
+        <thead><tr><th scope="col">Ruolo</th><th scope="col">Serie × reps</th><th scope="col">ER</th><th scope="col">Recupero</th><th scope="col">Tecnica</th></tr></thead>
+        <tbody>
+          <tr><td>Esercizio madre</td><td class="mono">4 × 6-8</td><td class="mono">20</td><td class="mono">1,5-3′</td><td>—</td></tr>
+          <tr><td>Meccanici</td><td class="mono">3 × 8-10</td><td class="mono">15</td><td class="mono">1,5-3′</td><td>—</td></tr>
+          <tr><td>Isolamenti</td><td class="mono">3 × 10-12</td><td class="mono">15</td><td class="mono">60-90″</td><td>SQUEEZE</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="come-funziona" aria-labelledby="h-come">
+    <div class="eyebrow">Come funziona</div>
+    <h2 id="h-come">Dalla scelta alla scheda in tre passi</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">Passo 1</div>
+        <h3>Scegli i target</h3>
+        <p>Due distretti tra dieci: petto, dorso, spalle, bicipiti, tricipiti, quadricipiti, femorali, glutei, polpacci, addome. Poi la durata (8, 12 o 16 settimane) e se vuoi lo scarico programmato.</p>
+      </div>
+      <div class="card">
+        <div class="num">Passo 2</div>
+        <h3>Adatta gli esercizi</h3>
+        <p>Ogni riga della scheda è un menu: alternative per lo stesso distretto, raggruppate per ruolo. Cambi l'esercizio e i parametri seguono il ruolo di quello che hai scelto. Le scelte restano salvate.</p>
+      </div>
+      <div class="card">
+        <div class="num">Passo 3</div>
+        <h3>Allena e batti il log</h3>
+        <p>La striscia delle settimane ti dice cosa fare: baseline la prima, poi si spinge, con gli scarichi evidenziati. Il tally dei volumi mostra ogni distretto contro le sue tacche MEV, MAV e MRV.</p>
+      </div>
+    </div>
+    <div class="split">
+      <div>
+        <h3 style="margin-top:8px">Volumi con le tacche, non a sensazione</h3>
+        <p style="color:var(--ink2)">Per ogni distretto la barra del volume settimanale si confronta con tre riferimenti: il minimo che mantiene (MEV), la zona più produttiva (MAV) e il tetto recuperabile (MRV). I target spingono verso l'alto, i non-target restano dichiaratamente in mantenimento: nessun volume nascosto, nessun distretto dimenticato per sbaglio.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:8px">Effective reps, non serie a vuoto</h3>
+        <p style="color:var(--ink2)">Ogni esercizio ha un target di ripetizioni efficaci: quelle vicine al cedimento, le uniche che contano davvero per l'ipertrofia. Con serie portate a RPE alto e recuperi calibrati per ruolo, il volume scritto in scheda è volume che allena.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nutrizione" aria-labelledby="h-nutrizione">
+    <div class="eyebrow">Nutrizione</div>
+    <h2 id="h-nutrizione">Il piano calorico segue la scheda</h2>
+    <div class="split">
+      <div>
+        <p style="color:var(--ink2)">Inserisci peso, età, altezza, sesso e stile di vita: l'app calcola metabolismo basale e dispendio totale, imposta il deficit e distribuisce le calorie tra giorni feriali e weekend, con i macro in grammi e in g/kg.</p>
+        <ul class="checks">
+          <li><b>Deficit dal TDEE</b>, non da numeri a caso: circa 625 kcal sotto il dispendio.</li>
+          <li><b>Weekend più alto e flessibile</b>: la media settimanale tiene, la vita sociale pure.</li>
+          <li><b>15.000 passi al giorno</b> e cardio in camminata: il dispendio si costruisce col NEAT.</li>
+          <li><b>Monitoraggio giornaliero</b>: peso, kcal, sonno, passi, fame, energia.</li>
+        </ul>
+      </div>
+      <div class="mock" role="img" aria-label="Anteprima del pannello nutrizione: calorie e macro">
+        <div class="mk-head"><b>Piano calorico</b><span>esempio · 75 kg</span></div>
+        <table>
+          <tr><td>TDEE</td><td>2.680 kcal</td></tr>
+          <tr><td>Media prescritta</td><td>2.055 kcal</td></tr>
+          <tr><td>Feriali / weekend</td><td>1.885 / 2.480 kcal</td></tr>
+          <tr><td>Proteine</td><td>150 g · 2,0 g/kg</td></tr>
+          <tr><td>Grassi</td><td>56 g · 0,75 g/kg</td></tr>
+          <tr><td>Carboidrati</td><td>238 g · 3,2 g/kg</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-source" aria-labelledby="h-oss">
+    <div class="eyebrow">Open source</div>
+    <h2 id="h-oss">Un file, nessun server, licenza MIT</h2>
+    <div class="oss" style="margin-top:22px">
+      <div class="split" style="margin-top:0">
+        <div>
+          <p style="color:var(--ink2); margin-top:0">L'app è una singola pagina HTML senza build, senza dipendenze da installare e senza backend. La apri nel browser, anche offline; la cloni e la modifichi come vuoi.</p>
+          <ul class="checks">
+            <li><b>Privacy per architettura</b>: i dati vivono solo nel localStorage del tuo browser.</li>
+            <li><b>Zero tracker</b>: nessuna analytics, nessun cookie, nessuna richiesta a terzi oltre ai font.</li>
+            <li><b>Licenza MIT</b>: usala, modificala, ridistribuiscila. Anche a scopo commerciale.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono" style="font-size:.85rem; background:var(--surface2); border:1px solid var(--line); padding:14px; overflow-x:auto; margin-top:0">git clone https://github.com/uppifyagency/programma-mesocicli.git<br>open programma-mesocicli/app/index.html</p>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn" href="app/">Prova subito nel browser</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq" aria-labelledby="h-faq">
+    <div class="eyebrow">FAQ</div>
+    <h2 id="h-faq">Domande frequenti</h2>
+    <details>
+      <summary>Programma Mesocicli è gratis?</summary>
+      <div class="a">Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è pubblico su GitHub.</div>
+    </details>
+    <details>
+      <summary>Che cos'è un mesociclo di specializzazione?</summary>
+      <div class="a">Un blocco di 8-16 settimane in cui il volume di allenamento si concentra su due distretti muscolari scelti (i target), mentre tutti gli altri scendono a un volume di mantenimento. Finito il blocco, si cambiano i target.</div>
+    </details>
+    <details>
+      <summary>Dove finiscono i miei dati?</summary>
+      <div class="a">Restano nel tuo browser (localStorage). L'app non ha backend e non invia nulla a nessun server: peso, età e scelte di configurazione non lasciano mai il tuo dispositivo.</div>
+    </details>
+    <details>
+      <summary>Come funziona la progressione?</summary>
+      <div class="a">Double progression sul log: registri carico, ripetizioni totali e RPE di ogni esercizio. La settimana dopo cerchi di battere il log: più ripetizioni a parità di carico, e quando sfori il range in alto aumenti il carico.</div>
+    </details>
+    <details>
+      <summary>Posso cambiare gli esercizi proposti?</summary>
+      <div class="a">Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). Reps, ER, recupero e tecnica si adattano al ruolo dell'esercizio che scegli.</div>
+    </details>
+    <details>
+      <summary>Serve installare qualcosa?</summary>
+      <div class="a">No. È una pagina statica: si apre nel browser da questo sito o da file locale. Per lo sviluppo basta clonare il repository e aprire app/index.html: niente build, niente dipendenze.</div>
+    </details>
+  </section>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap footgrid">
+    <div>Programma Mesocicli · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
+    <div>Non è una prescrizione medica: prima di iniziare un programma di allenamento o una dieta, parlane con un professionista.</div>
+  </div>
+</footer>
+</body>
+</html>

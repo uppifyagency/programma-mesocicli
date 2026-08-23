@@ -339,6 +339,23 @@ if(state.sesso!=="F") state.sesso = "M";
 const CLAMP = {peso:[40,150,75], eta:[16,80,30], alt:[140,210,175], mult:[1.2,1.9,1.55]};
 Object.keys(CLAMP).forEach(k=>{ const [lo,hi,dv]=CLAMP[k]; const v=Number(state[k]); state[k]=isFinite(v)?Math.min(hi,Math.max(lo,v)):dv; });
 if(!state.scelte || typeof state.scelte!=="object" || Array.isArray(state.scelte)) state.scelte = {};
+/* la landing passa i dati del calcolatore in querystring: si applicano sopra lo stato salvato */
+try{
+  const q = new URLSearchParams(location.search);
+  if(Array.from(q.keys()).length){
+    if(q.has("sesso")) state.sesso = q.get("sesso")==="F" ? "F" : "M";
+    Object.keys(CLAMP).forEach(k=>{
+      if(!q.has(k)) return;
+      const [lo,hi] = CLAMP[k]; const v = Number(q.get(k));
+      if(isFinite(v)) state[k] = Math.min(hi, Math.max(lo, v));
+    });
+    const t = (q.get("target")||"").split(",").filter(k=>DISTRETTI[k]).slice(0,2);
+    if(t.length===2) state.targets = t;
+    const d = Number(q.get("dur")); if([8,12,16].includes(d)) state.dur = d;
+    save();
+    if(history.replaceState) history.replaceState(null, "", location.pathname);
+  }
+}catch(e){}
 function save(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} }
 
 /* ---------- allocazione volume ---------- */
@@ -456,12 +473,17 @@ function nutrizione(){
   const {peso, eta, alt, sesso, mult} = state;
   const bmr = 10*peso + 6.25*alt - 5*eta + (sesso==="M"?5:-161);
   const tdee = bmr*mult;
-  const media = Math.round(tdee - 625);
+  /* il deficit di riferimento e 625 kcal, ma non si scende sotto il metabolismo basale:
+     su soggetti leggeri 625 kcal sotto il TDEE finirebbero sotto il BMR */
+  const grezzo = Math.round(tdee - 625);
+  const media = Math.max(grezzo, Math.round(bmr));
+  const deficit = Math.round(tdee) - media;
+  const ridotto = media > grezzo;
   const feriali = media - 170;
   const weekend = Math.round((media*7 - feriali*5)/2);
   const P = Math.round(peso*2.0), F = Math.round(peso*0.75);
   const C = Math.max(0, Math.round((media - P*4 - F*9)/4));
-  return {bmr:Math.round(bmr), tdee:Math.round(tdee), media, feriali, weekend, P, F, C};
+  return {bmr:Math.round(bmr), tdee:Math.round(tdee), media, feriali, weekend, P, F, C, deficit, ridotto, kgSett:deficit*7/7700};
 }
 
 /* ---------- render ---------- */
@@ -589,7 +611,7 @@ function render(){
   h += `<tr><td>Proteine</td><td class="num">${nut.P}</td><td class="num">${(nut.P/state.peso).toFixed(1)}</td></tr>`;
   h += `<tr><td>Grassi</td><td class="num">${nut.F}</td><td class="num">${(nut.F/state.peso).toFixed(2)}</td></tr>`;
   h += `<tr><td>Carboidrati</td><td class="num">${nut.C}</td><td class="num">${(nut.C/state.peso).toFixed(1)}</td></tr>`;
-  h += '</tbody></table></div><ul class="tight"><li>Deficit ~625 kcal dal TDEE.</li><li>Weekend più alto e flessibile: non privarti di cene con amici o famiglia, ma senza esagerare.</li><li>15.000 passi al giorno; cardio solo camminata, 420 minuti a settimana.</li><li>Monitoraggio giornaliero: peso, kcal, macro, sonno, passi, fame, energia. Check mensile: foto, pliche, circonferenze.</li><li>Integrazione base: creatina, proteine in polvere, omega-3.</li></ul></div>';
+  h += `</tbody></table></div><ul class="tight">${nut.ridotto ? `<li><b>Deficit ridotto a ${nut.deficit} kcal</b>: 625 kcal sotto il tuo dispendio ti porterebbero sotto il metabolismo basale, quindi il taglio si ferma al BMR. Perdita attesa ${nut.kgSett.toFixed(2)} kg a settimana.</li>` : `<li>Deficit di ${nut.deficit} kcal dal TDEE, perdita attesa ${nut.kgSett.toFixed(2)} kg a settimana.</li>`}<li>Weekend più alto e flessibile: non privarti di cene con amici o famiglia, ma senza esagerare.</li><li>15.000 passi al giorno; cardio solo camminata, 420 minuti a settimana.</li><li>Monitoraggio giornaliero: peso, kcal, macro, sonno, passi, fame, energia. Check mensile: foto, pliche, circonferenze.</li><li>Integrazione base: creatina, proteine in polvere, omega-3.</li></ul></div>`;
 
   out.innerHTML = h;
 }

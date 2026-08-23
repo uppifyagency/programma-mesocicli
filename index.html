@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programma Mesocicli · generatore di schede per l'ipertrofia</title>
-<meta name="description" content="Scegli due distretti target e ottieni un mesociclo completo: 5 sedute, esercizi intercambiabili, volumi contro MEV/MAV/MRV, piano nutrizionale. Open source, gratis, senza account.">
+<title>Programma Mesocicli · programma di cut con calorie e scheda dai tuoi dati</title>
+<meta name="description" content="Inserisci eta, peso, altezza e attivita: calcoli le calorie del cut e ottieni il mesociclo completo, 5 sedute a settimana con esercizi intercambiabili, volumi e macro. Gratis, open source, senza account.">
 <link rel="canonical" href="https://uppifyagency.github.io/programma-mesocicli/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programma Mesocicli">
-<meta property="og:title" content="Programma Mesocicli · generatore di schede per l'ipertrofia">
-<meta property="og:description" content="Due distretti target, cinque sedute, un log da battere. Generatore open source di mesocicli di specializzazione per l'ipertrofia.">
+<meta property="og:title" content="Programma Mesocicli · il tuo cut, calcolato e programmato">
+<meta property="og:description" content="Eta, peso, altezza, attivita: calorie del cut, macro e mesociclo di specializzazione in cinque sedute. Open source, senza account.">
 <meta property="og:url" content="https://uppifyagency.github.io/programma-mesocicli/">
 <meta property="og:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Programma Mesocicli: due distretti target, cinque sedute, un log da battere">
+<meta property="og:image:alt" content="Programma Mesocicli: calorie del cut dai tuoi dati, due distretti target, cinque sedute">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Programma Mesocicli">
-<meta name="twitter:description" content="Generatore open source di mesocicli di specializzazione: 5 sedute, esercizi intercambiabili, volumi MEV/MAV/MRV, nutrizione.">
+<meta name="twitter:description" content="Calorie del cut dai tuoi dati piu il mesociclo di specializzazione: 5 sedute, esercizi intercambiabili, volumi e macro.">
 <meta name="twitter:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -38,7 +38,15 @@
   "inLanguage": "it",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
   "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
-  "description": "Generatore di mesocicli di specializzazione per l'ipertrofia: due distretti target, cinque sedute, esercizi intercambiabili, volumi di riferimento e piano nutrizionale."
+  "featureList": [
+    "Calcolo di metabolismo basale e dispendio energetico da eta, peso, altezza, sesso e attivita",
+    "Calorie del cut con deficit calibrato e ripartizione tra feriali e weekend",
+    "Macronutrienti in grammi e in g/kg",
+    "Mesociclo di 8, 12 o 16 settimane con due distretti target",
+    "Cinque sedute a settimana con esercizi alternativi per ogni ruolo",
+    "Volumi settimanali per distretto con riferimenti MEV, MAV e MRV"
+  ],
+  "description": "Programma di cut: dai tuoi dati calcola le calorie e i macro della definizione e genera il mesociclo di specializzazione, cinque sedute a settimana con esercizi intercambiabili e volumi di riferimento."
 }
 </script>
 <script type="application/ld+json">
@@ -46,6 +54,10 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {"@type": "Question", "name": "Come calcola le calorie del cut?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Dal metabolismo basale con la formula Mifflin-St Jeor su eta, peso, altezza e sesso, moltiplicato per il fattore di attivita quotidiana. Dal dispendio totale sottrae circa 625 kcal al giorno, che corrisponde a una perdita attesa intorno a 0,55 kg a settimana. La media settimanale resta quella prescritta: i giorni feriali stanno piu bassi e il weekend piu alto."}},
+    {"@type": "Question", "name": "Si puo perdere grasso e allenare l'ipertrofia insieme?",
+     "acceptedAnswer": {"@type": "Answer", "text": "In deficit calorico la crescita muscolare rallenta o si ferma, quindi il volume alto viene concentrato su due soli distretti mentre gli altri restano al minimo che mantiene i guadagni. In un cut l'obiettivo realistico e conservare la massa magra, con margini di crescita reali solo per chi si allena da poco o riparte dopo una pausa."}},
     {"@type": "Question", "name": "Programma Mesocicli è gratis?",
      "acceptedAnswer": {"@type": "Answer", "text": "Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è su GitHub."}},
     {"@type": "Question", "name": "Che cos'è un mesociclo di specializzazione?",
@@ -156,6 +168,26 @@ ul.checks li b{color:var(--ink)}
 footer.site{border-top:1px solid var(--line); padding:28px 0 48px; color:var(--ink3); font-size:.85rem;}
 footer.site a{color:var(--ink2)}
 .footgrid{display:flex; gap:24px; flex-wrap:wrap; justify-content:space-between;}
+/* calcolatore del cut in pagina */
+.calc{background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--accent); padding:18px;}
+.calc .mk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:12px;}
+.calc .mk-head b{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-size:1.05rem; letter-spacing:.03em;}
+.calc .mk-head span{font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--ink3);}
+.calc .crow{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.calc .fld{margin-bottom:10px;}
+.calc label{display:block; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:.76rem; color:var(--ink2); margin-bottom:4px;}
+.calc input, .calc select{width:100%; border:1px solid var(--line); background:var(--surface2); color:var(--ink); padding:8px 9px; font-family:"IBM Plex Mono",monospace; font-size:.92rem;}
+.calc input:focus-visible, .calc select:focus-visible{outline:3px solid var(--accent); outline-offset:1px;}
+.cout{border-top:1px solid var(--line); margin-top:6px; padding-top:10px;}
+.cout .r{display:flex; justify-content:space-between; gap:10px; font-size:.86rem; padding:4px 0; border-bottom:1px dotted var(--line);}
+.cout .r:last-child{border-bottom:0;}
+.cout .r .k{color:var(--ink2);}
+.cout .r .v{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap;}
+.cout .r.big{border-bottom:0; align-items:baseline; padding:8px 0 2px;}
+.cout .r.big .k{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em; font-size:.95rem; color:var(--ink);}
+.cout .r.big .v{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:1.9rem; color:var(--accent-text); line-height:1;}
+.calc .go{display:block; text-align:center; margin-top:12px;}
+.calc .fine{font-size:.76rem; color:var(--ink3); margin:10px 0 0;}
 </style>
 </head>
 <body>
@@ -167,6 +199,7 @@ footer.site a{color:var(--ink2)}
       Programma Mesocicli
     </a>
     <nav aria-label="Navigazione principale">
+      <a href="#calcola">Calcola</a>
       <a href="#metodo">Il metodo</a>
       <a href="#come-funziona">Come funziona</a>
       <a href="#nutrizione">Nutrizione</a>
@@ -182,37 +215,49 @@ footer.site a{color:var(--ink2)}
 
   <div class="hero">
     <div>
-      <div class="kicker">Generatore di mesocicli · open source</div>
-      <h1>Mesociclo di specializzazione:<br>due distretti target, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
-      <p class="lead">Scegli i due gruppi muscolari su cui vuoi crescere: il generatore concentra lì il volume, tiene il resto in mantenimento e ti consegna la settimana completa di scheda palestra, esercizio per esercizio, con serie, ripetizioni, recuperi e piano calorico.</p>
+      <div class="kicker">Programma di cut · open source</div>
+      <h1>Il tuo cut, calcolato e programmato:<br>calorie dai tuoi dati, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
+      <p class="lead">Metti età, peso, altezza e quanto ti muovi in una giornata: da lì escono le calorie della definizione, i macro in grammi e il mesociclo completo di 8, 12 o 16 settimane. Due distretti tengono il volume alto, il resto del corpo resta al minimo che mantiene, e ogni seduta arriva già scritta con serie, ripetizioni e recuperi.</p>
       <div class="cta">
-        <a class="btn" href="app/">Genera il tuo mesociclo</a>
-        <a class="btn ghost" href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">Codice su GitHub</a>
+        <a class="btn" href="#calcola">Calcola il tuo cut</a>
+        <a class="btn ghost" href="app/">Vai al generatore</a>
       </div>
       <p class="fine">Gratis · nessun account · i dati restano nel tuo browser</p>
     </div>
-    <div class="mock" role="img" aria-label="Anteprima dell'app: tabella della sessione 1 (petto, 19 serie) e barre dei volumi per distretto contro le tacche MEV, MAV e MRV">
-      <div class="mk-head"><b>Sessione 1 · Petto · giorno 1</b><span>19 serie</span></div>
-      <table>
-        <tr><td>Chest press inclinata<span class="tagx">madre</span></td><td>4 × 6-8 · ER 20</td></tr>
-        <tr><td>Chest press verticale</td><td>3 × 8-10 · ER 15</td></tr>
-        <tr><td>Croci pec deck</td><td>3 × 10-12 · SQUEEZE</td></tr>
-        <tr><td>Alzate laterali</td><td>3 × 10-12 · 60-90″</td></tr>
-      </table>
-      <div class="bars" aria-hidden="true">
-        <div class="brow"><span class="lbl">Petto</span><span class="track"><span class="fill" style="width:82%;background:var(--accent)"></span><span class="tick" style="left:36%"></span><span class="tick" style="left:64%"></span></span><span class="num">19</span></div>
-        <div class="brow"><span class="lbl">Glutei</span><span class="track"><span class="fill" style="width:60%;background:var(--accent)"></span><span class="tick" style="left:22%"></span><span class="tick" style="left:48%"></span></span><span class="num">13</span></div>
-        <div class="brow"><span class="lbl">Dorso</span><span class="track"><span class="fill" style="width:42%;background:var(--ok)"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:62%"></span></span><span class="num">10</span></div>
-        <div class="brow"><span class="lbl">Bicipiti</span><span class="track"><span class="fill" style="width:16%;background:var(--warn)"></span><span class="tick" style="left:24%"></span><span class="tick" style="left:50%"></span></span><span class="num">3</span></div>
+    <form class="calc" id="calcola" aria-labelledby="h-calc" onsubmit="return false">
+      <div class="mk-head"><b id="h-calc">Calcola il tuo cut</b><span>Mifflin-St Jeor</span></div>
+      <div class="crow">
+        <div class="fld"><label for="c-sesso">Sesso</label>
+          <select id="c-sesso"><option value="M">Uomo</option><option value="F">Donna</option></select></div>
+        <div class="fld"><label for="c-eta">Età</label>
+          <input type="number" id="c-eta" value="30" min="16" max="80" step="1" inputmode="numeric"></div>
       </div>
-    </div>
+      <div class="crow">
+        <div class="fld"><label for="c-peso">Peso kg</label>
+          <input type="number" id="c-peso" value="75" min="40" max="150" step="0.5" inputmode="decimal"></div>
+        <div class="fld"><label for="c-alt">Altezza cm</label>
+          <input type="number" id="c-alt" value="175" min="140" max="210" step="1" inputmode="numeric"></div>
+      </div>
+      <div class="fld"><label for="c-mult">Attività quotidiana</label>
+        <select id="c-mult">
+          <option value="1.2">Sedentario, lavoro da fermo</option>
+          <option value="1.375">Poco attivo, cammino qualche volta</option>
+          <option value="1.55" selected>Attivo, cammino ogni giorno</option>
+          <option value="1.725">Molto attivo, lavoro in movimento</option>
+          <option value="1.9">Attività fisica pesante tutti i giorni</option>
+        </select>
+      </div>
+      <div class="cout" id="cout" aria-live="polite"></div>
+      <a class="btn go" id="c-go" href="app/">Genera il programma</a>
+      <p class="fine">Nessun dato lascia il browser. I numeri sono una stima da formula: si aggiustano sul peso reale dopo due settimane.</p>
+    </form>
   </div>
 
   <div class="stats" role="group" aria-label="Numeri chiave">
-    <div class="stat"><div class="n">2</div><div class="l">distretti target</div></div>
+    <div class="stat"><div class="n">&minus;625</div><div class="l">kcal di deficit, mai sotto il BMR</div></div>
     <div class="stat"><div class="n">5</div><div class="l">sedute a settimana</div></div>
-    <div class="stat"><div class="n">8-16</div><div class="l">settimane</div></div>
-    <div class="stat"><div class="n">0</div><div class="l">account richiesti</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">distretti target</div></div>
+    <div class="stat"><div class="n">8-16</div><div class="l">settimane di blocco</div></div>
   </div>
 
   <section id="metodo" aria-labelledby="h-metodo">
@@ -222,7 +267,7 @@ footer.site a{color:var(--ink2)}
       <div class="card">
         <div class="num">01</div>
         <h3>Due target, il resto in mantenimento</h3>
-        <p>Non si cresce ovunque insieme. Il generatore alza il volume dei due distretti scelti verso il loro massimo produttivo e taglia gli altri al minimo che ne conserva i guadagni. Ogni target compare due volte a settimana.</p>
+        <p>In deficit calorico il recupero è la risorsa scarsa, quindi non si spinge su tutto. Il generatore alza il volume dei due distretti scelti verso il loro massimo produttivo e tiene gli altri al minimo che ne conserva i guadagni. Ogni target compare due volte a settimana.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
@@ -269,29 +314,55 @@ footer.site a{color:var(--ink2)}
         <p>La striscia delle settimane ti dice cosa fare: baseline la prima, poi si spinge, con gli scarichi evidenziati. Il tally dei volumi mostra ogni distretto contro le sue tacche MEV, MAV e MRV.</p>
       </div>
     </div>
+
     <div class="split">
+      <div>
+        <div class="mock" role="img" aria-label="Anteprima dell'app: tabella della sessione 1 (petto, 19 serie) e barre dei volumi per distretto contro le tacche MEV, MAV e MRV">
+      <div class="mk-head"><b>Sessione 1 · Petto · giorno 1</b><span>19 serie</span></div>
+      <table>
+        <tr><td>Chest press inclinata<span class="tagx">madre</span></td><td>4 × 6-8 · ER 20</td></tr>
+        <tr><td>Chest press verticale</td><td>3 × 8-10 · ER 15</td></tr>
+        <tr><td>Croci pec deck</td><td>3 × 10-12 · SQUEEZE</td></tr>
+        <tr><td>Alzate laterali</td><td>3 × 10-12 · 60-90″</td></tr>
+      </table>
+      <div class="bars" aria-hidden="true">
+        <div class="brow"><span class="lbl">Petto</span><span class="track"><span class="fill" style="width:82%;background:var(--accent)"></span><span class="tick" style="left:36%"></span><span class="tick" style="left:64%"></span></span><span class="num">19</span></div>
+        <div class="brow"><span class="lbl">Glutei</span><span class="track"><span class="fill" style="width:60%;background:var(--accent)"></span><span class="tick" style="left:22%"></span><span class="tick" style="left:48%"></span></span><span class="num">13</span></div>
+        <div class="brow"><span class="lbl">Dorso</span><span class="track"><span class="fill" style="width:42%;background:var(--ok)"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:62%"></span></span><span class="num">10</span></div>
+        <div class="brow"><span class="lbl">Bicipiti</span><span class="track"><span class="fill" style="width:16%;background:var(--warn)"></span><span class="tick" style="left:24%"></span><span class="tick" style="left:50%"></span></span><span class="num">3</span></div>
+      </div>
+    </div>
+      </div>
       <div>
         <h3 style="margin-top:8px">Volumi con le tacche, non a sensazione</h3>
         <p style="color:var(--ink2)">Per ogni distretto la barra del volume settimanale si confronta con tre riferimenti: il minimo che mantiene (MEV), la zona più produttiva (MAV) e il tetto recuperabile (MRV). I target spingono verso l'alto, i non-target restano dichiaratamente in mantenimento: nessun volume nascosto, nessun distretto dimenticato per sbaglio.</p>
       </div>
+    </div>
+
+    <div class="split">
       <div>
         <h3 style="margin-top:8px">Effective reps, non serie a vuoto</h3>
-        <p style="color:var(--ink2)">Ogni esercizio ha un target di ripetizioni efficaci: quelle vicine al cedimento, le uniche che contano davvero per l'ipertrofia. Con serie portate a RPE alto e recuperi calibrati per ruolo, il volume scritto in scheda è volume che allena.</p>
+        <p style="color:var(--ink2)">Ogni esercizio ha un target di ripetizioni efficaci: quelle vicine al cedimento, le uniche che contano davvero. Con serie portate a RPE alto e recuperi calibrati per ruolo, il volume scritto in scheda è volume che allena, e in deficit calorico questo conta il doppio: le serie che non allenano restano solo fatica da recuperare.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:8px">In deficit il carico va difeso</h3>
+        <p style="color:var(--ink2)">Mangiando meno il recupero si accorcia e i carichi tendono a scendere. Il log serve a vedere quando succede: se i chili tengono settimana dopo settimana, il muscolo c'è ancora e il peso che scende è grasso. Se crollano su tutti gli esercizi insieme, il problema è il deficit o il sonno, non la scheda.</p>
       </div>
     </div>
   </section>
 
   <section id="nutrizione" aria-labelledby="h-nutrizione">
     <div class="eyebrow">Nutrizione</div>
-    <h2 id="h-nutrizione">Il piano calorico segue la scheda</h2>
+    <h2 id="h-nutrizione">Le calorie del cut, dai tuoi numeri</h2>
     <div class="split">
       <div>
-        <p style="color:var(--ink2)">Inserisci peso, età, altezza, sesso e stile di vita: l'app calcola metabolismo basale e dispendio totale, imposta il deficit e distribuisce le calorie tra giorni feriali e weekend, con i macro in grammi e in g/kg.</p>
+        <p style="color:var(--ink2)">Età, peso, altezza, sesso e attività quotidiana bastano: da lì escono metabolismo basale e dispendio totale, il deficit, la ripartizione tra feriali e weekend e i macro in grammi e in g/kg. Sono gli stessi numeri che vedi nel calcolatore in cima alla pagina, con la scheda attaccata.</p>
         <ul class="checks">
-          <li><b>Deficit dal TDEE</b>, non da numeri a caso: circa 625 kcal sotto il dispendio.</li>
-          <li><b>Weekend più alto e flessibile</b>: la media settimanale tiene, la vita sociale pure.</li>
-          <li><b>15.000 passi al giorno</b> e cardio in camminata: il dispendio si costruisce col NEAT.</li>
-          <li><b>Monitoraggio giornaliero</b>: peso, kcal, sonno, passi, fame, energia.</li>
+          <li><b>Deficit dal tuo TDEE</b>, non una dieta a numeri fissi: circa 625 kcal al giorno, intorno a 0,55 kg a settimana.</li>
+          <li><b>Weekend più alto e flessibile</b>: la media settimanale resta quella prescritta, la vita sociale pure.</li>
+          <li><b>Proteine a 2 g/kg</b> e grassi a 0,75 g/kg: quello che resta va ai carboidrati, che alimentano le sedute.</li>
+          <li><b>15.000 passi al giorno</b>: in un cut il NEAT muove più calorie del cardio, e costa meno recupero.</li>
+          <li><b>Si aggiusta sul peso reale</b>: dopo due settimane di misure la formula lascia il posto ai dati.</li>
         </ul>
       </div>
       <div class="mock" role="img" aria-label="Anteprima del pannello nutrizione: calorie e macro">
@@ -335,6 +406,14 @@ footer.site a{color:var(--ink2)}
     <div class="eyebrow">FAQ</div>
     <h2 id="h-faq">Domande frequenti</h2>
     <details>
+      <summary>Come vengono calcolate le calorie del cut?</summary>
+      <div class="a">Il metabolismo basale con la formula Mifflin-St Jeor su età, peso, altezza e sesso, moltiplicato per il fattore di attività quotidiana che scegli. Dal dispendio totale l'app sottrae circa 625 kcal al giorno, cioè una perdita attesa intorno a 0,55 kg a settimana. I giorni feriali stanno più bassi e il weekend più alto, ma la media della settimana resta quella prescritta. Ogni formula è una stima: dopo due settimane conta il peso sulla bilancia, non il calcolo.</div>
+    </details>
+    <details>
+      <summary>Si può perdere grasso e mettere muscolo insieme?</summary>
+      <div class="a">In deficit calorico la crescita rallenta o si ferma, e per chi si allena da anni l'obiettivo realistico è conservare la massa magra invece di costruirne. Per questo il volume alto va su due soli distretti e non su tutto il corpo: è lì che vale la pena spendere il recupero che il deficit lascia. Chi si allena da poco, riparte dopo una pausa o ha molto grasso da perdere può ancora guadagnare qualcosa.</div>
+    </details>
+    <details>
       <summary>Programma Mesocicli è gratis?</summary>
       <div class="a">Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è pubblico su GitHub.</div>
     </details>
@@ -369,5 +448,62 @@ footer.site a{color:var(--ink2)}
     <div>Non è una prescrizione medica: prima di iniziare un programma di allenamento o una dieta, parlane con un professionista.</div>
   </div>
 </footer>
+<script>
+/* calcolatore del cut: stessa aritmetica del generatore, cosi i numeri combaciano */
+(function(){
+  var F = {sesso:"c-sesso", eta:"c-eta", peso:"c-peso", alt:"c-alt", mult:"c-mult"};
+  Object.keys(F).forEach(function(k){ F[k] = document.getElementById(F[k]); });
+  var out = document.getElementById("cout"), go = document.getElementById("c-go");
+  if(!out || !go || Object.keys(F).some(function(k){ return !F[k]; })) return;
+  var LIM = {eta:[16,80,30], peso:[40,150,75], alt:[140,210,175]};
+  var nf = new Intl.NumberFormat("it-IT");
+  var n1 = new Intl.NumberFormat("it-IT", {minimumFractionDigits:1, maximumFractionDigits:1});
+  var n2 = new Intl.NumberFormat("it-IT", {minimumFractionDigits:2, maximumFractionDigits:2});
+
+  function val(k){
+    var lim = LIM[k], v = parseFloat(F[k].value);
+    return isFinite(v) ? Math.min(lim[1], Math.max(lim[0], v)) : lim[2];
+  }
+  function row(k, v, cls){
+    return '<div class="r'+(cls?" "+cls:"")+'"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';
+  }
+  function calc(){
+    var sesso = F.sesso.value === "F" ? "F" : "M";
+    var mult = parseFloat(F.mult.value) || 1.55;
+    var peso = val("peso"), eta = val("eta"), alt = val("alt");
+    var bmr = 10*peso + 6.25*alt - 5*eta + (sesso === "M" ? 5 : -161);
+    var tdee = bmr*mult;
+    /* deficit di riferimento 625 kcal, ma il target non scende sotto il metabolismo basale */
+    var grezzo = Math.round(tdee - 625);
+    var media = Math.max(grezzo, Math.round(bmr));
+    var deficit = Math.round(tdee) - media;
+    var ridotto = media > grezzo;
+    var feriali = media - 170;
+    var weekend = Math.round((media*7 - feriali*5)/2);
+    var P = Math.round(peso*2.0), G = Math.round(peso*0.75);
+    var C = Math.max(0, Math.round((media - P*4 - G*9)/4));
+    var kgSett = deficit*7/7700;
+
+    out.innerHTML =
+      row("Calorie del cut", nf.format(media)+" kcal", "big") +
+      row("Metabolismo basale", nf.format(Math.round(bmr))+" kcal") +
+      row("Dispendio totale (TDEE)", nf.format(Math.round(tdee))+" kcal") +
+      row("Feriali / weekend", nf.format(feriali)+" / "+nf.format(weekend)+" kcal") +
+      row("Proteine", nf.format(P)+" g \u00b7 2,0 g/kg") +
+      row("Grassi", nf.format(G)+" g \u00b7 0,75 g/kg") +
+      row("Carboidrati", nf.format(C)+" g \u00b7 "+n1.format(C/peso)+" g/kg") +
+      row("Deficit applicato", "\u2212"+nf.format(deficit)+" kcal al giorno") +
+      row("Perdita attesa", "\u2212"+n2.format(kgSett)+" kg a settimana") +
+      (ridotto ? '<p class="fine" style="color:var(--crit); margin:8px 0 0">Il deficit pieno di 625 kcal ti porterebbe sotto il metabolismo basale, quindi è stato ridotto a '+nf.format(deficit)+' kcal. Con numeri così bassi vale la pena farsi seguire da un professionista.</p>' : "");
+
+    go.setAttribute("href", "app/?sesso="+sesso+"&eta="+eta+"&peso="+peso+"&alt="+alt+"&mult="+mult);
+  }
+  Object.keys(F).forEach(function(k){
+    F[k].addEventListener("input", calc);
+    F[k].addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
 </body>
 </html>

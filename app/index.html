@@ -3,56 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>App · Programma Mesocicli</title>
+<title>Genera il tuo mesociclo di specializzazione · Programma Mesocicli</title>
 <meta name="description" content="Genera il tuo mesociclo di specializzazione: scegli due distretti target e ottieni 5 sedute complete, volumi contro MEV/MAV/MRV e piano nutrizionale. Gratis, senza account.">
 <link rel="canonical" href="https://uppifyagency.github.io/programma-mesocicli/app/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
-<meta property="og:title" content="App · Programma Mesocicli">
+<meta property="og:site_name" content="Programma Mesocicli">
+<meta property="og:title" content="Genera il tuo mesociclo di specializzazione">
 <meta property="og:description" content="Genera il tuo mesociclo di specializzazione: due distretti target, 5 sedute, double progression sul log.">
 <meta property="og:url" content="https://uppifyagency.github.io/programma-mesocicli/app/">
 <meta property="og:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
 <meta property="og:locale" content="it_IT">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Programma Mesocicli: due distretti target, cinque sedute, un log da battere">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Genera il tuo mesociclo di specializzazione">
+<meta name="twitter:description" content="Due distretti target, 5 sedute, esercizi intercambiabili e piano calorico. Gratis, senza account.">
+<meta name="twitter:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
+@font-face{font-family:"Barlow Condensed Fallback";src:local("Arial Narrow");size-adjust:88%;}
 :root{
-  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#7B8794;
-  --line:#D5DAE0; --accent:#D9560B; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
+  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#5D6873;
+  --line:#D5DAE0; --accent:#D9560B; --accent-text:#B84708; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
   --ok:#2E7D46; --warn:#B07C0A; --crit:#B3362A; --ok-soft:#DDEEE3; --warn-soft:#F5EBD0; --crit-soft:#F6DEDB;
   --chip-on:#161B22; --chip-on-ink:#FFFFFF;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#77828D;
-    --line:#313A44; --accent:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+    --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
     --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D; --ok-soft:#1E3226; --warn-soft:#372D14; --crit-soft:#3B211E;
     --chip-on:#E8ECEF; --chip-on-ink:#13171C;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#77828D;
-  --line:#313A44; --accent:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+  --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+  --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
   --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D; --ok-soft:#1E3226; --warn-soft:#372D14; --crit-soft:#3B211E;
   --chip-on:#E8ECEF; --chip-on-ink:#13171C;
 }
 *{box-sizing:border-box}
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent-text); color:var(--accent-ink); padding:8px 14px; z-index:99;}
+.skip:focus{left:12px; top:12px;}
 body{background:var(--bg); color:var(--ink); font-family:Barlow,system-ui,sans-serif; font-size:15px; line-height:1.5; margin:0; padding:0;}
 .wrap{max-width:1240px; margin:0 auto; padding:20px 20px 64px;}
-h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif; text-wrap:balance; margin:0;}
+h1,h2,h3{font-family:"Barlow Condensed","Barlow Condensed Fallback","Arial Narrow",sans-serif; text-wrap:balance; margin:0;}
 h1{font-size:2.1rem; font-weight:700; letter-spacing:.01em; text-transform:uppercase;}
 h2{font-size:1.25rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
 h3{font-size:1.02rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--ink2);}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
 header.site{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; border-bottom:3px solid var(--ink); padding-bottom:12px; margin-bottom:18px;}
 header.site .sub{color:var(--ink2); font-size:.92rem; max-width:62ch;}
-.tag{display:inline-block; background:var(--accent); color:var(--accent-ink); font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:2px 9px; font-size:.85rem;}
+.tag{display:inline-block; background:var(--accent-text); color:var(--accent-ink); font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:2px 9px; font-size:.85rem;}
 .layout{display:grid; grid-template-columns:300px 1fr; gap:18px; align-items:start;}
 @media (max-width:900px){ .layout{grid-template-columns:1fr;} }
 .panel{background:var(--surface); border:1px solid var(--line); padding:16px;}
@@ -61,9 +70,9 @@ header.site .sub{color:var(--ink2); font-size:.92rem; max-width:62ch;}
 @media (max-width:900px){ .rail{position:static;} }
 .field{margin-top:14px;}
 .field:first-of-type{margin-top:10px;}
-label.lbl{display:block; font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:.82rem; color:var(--ink2); margin-bottom:6px;}
+label.lbl, span.lbl{display:block; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:.82rem; color:var(--ink2); margin-bottom:6px;}
 .chips{display:flex; flex-wrap:wrap; gap:6px;}
-.chip{border:1px solid var(--line); background:var(--surface2); color:var(--ink); padding:5px 11px; font-family:"Barlow Condensed",sans-serif; font-weight:600; font-size:.92rem; text-transform:uppercase; letter-spacing:.03em; cursor:pointer;}
+.chip{border:1px solid var(--line); background:var(--surface2); color:var(--ink); padding:5px 11px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; font-size:.92rem; text-transform:uppercase; letter-spacing:.03em; cursor:pointer;}
 .chip[aria-pressed="true"]{background:var(--chip-on); color:var(--chip-on-ink); border-color:var(--chip-on);}
 .chip:focus-visible, .seg button:focus-visible, .switch:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 .seg{display:flex; border:1px solid var(--line);}
@@ -81,18 +90,18 @@ select.exsel{width:auto; min-width:200px; max-width:320px; padding:4px 6px; font
 .hint{font-size:.82rem; color:var(--ink3); margin-top:5px;}
 .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
 table{border-collapse:collapse; width:100%; font-size:.9rem;}
-th{font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.05em; font-size:.78rem; color:var(--ink2); text-align:left; padding:6px 8px; border-bottom:2px solid var(--ink);}
+th{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.05em; font-size:.78rem; color:var(--ink2); text-align:left; padding:6px 8px; border-bottom:2px solid var(--ink);}
 td{padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top;}
 td.num, th.num{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap;}
 .scroll{overflow-x:auto;}
 .sess{margin-top:14px;}
 .sess-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
-.sess-head .n{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:1.15rem; text-transform:uppercase;}
+.sess-head .n{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:1.15rem; text-transform:uppercase;}
 .sess-head .meta{color:var(--ink3); font-size:.85rem; font-family:"IBM Plex Mono",monospace;}
-.pill{display:inline-block; padding:1px 8px; font-size:.75rem; font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.05em; border:1px solid var(--line); color:var(--ink2);}
+.pill{display:inline-block; padding:1px 8px; font-size:.75rem; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.05em; border:1px solid var(--line); color:var(--ink2);}
 .pill.target{background:var(--accent-soft); border-color:var(--accent); color:var(--ink);}
 .volrow{display:grid; grid-template-columns:110px 1fr 120px; gap:10px; align-items:center; padding:5px 0; border-bottom:1px solid var(--line);}
-.volrow .name{font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; font-size:.88rem;}
+.volrow .name{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; font-size:.88rem;}
 .bar{position:relative; height:14px; background:var(--surface2); border:1px solid var(--line);}
 .bar .fill{position:absolute; top:0; left:0; bottom:0;}
 .bar .mk{position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--ink3);}
@@ -103,13 +112,13 @@ td.num, th.num{text-align:right; font-family:"IBM Plex Mono",monospace; font-var
 .sw{width:10px; height:10px; display:inline-block;}
 .weeks{display:grid; grid-template-columns:repeat(auto-fill,minmax(118px,1fr)); gap:8px; margin-top:10px;}
 .wk{border:1px solid var(--line); background:var(--surface2); padding:8px 10px;}
-.wk .wn{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:1rem; text-transform:uppercase;}
+.wk .wn{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:1rem; text-transform:uppercase;}
 .wk .wt{font-size:.76rem; color:var(--ink2); margin-top:2px; line-height:1.35;}
 .wk.deload{background:var(--accent-soft); border-color:var(--accent);}
-.wk.deload .wn{color:var(--accent);}
+.wk.deload .wn{color:var(--accent-text);}
 .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-top:10px;}
 .kpi{border:1px solid var(--line); background:var(--surface2); padding:9px 11px;}
-.kpi .k{font-size:.74rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink3); font-family:"Barlow Condensed",sans-serif; font-weight:600;}
+.kpi .k{font-size:.74rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink3); font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600;}
 .kpi .v{font-family:"IBM Plex Mono",monospace; font-size:1.18rem; font-weight:600; margin-top:2px;}
 .kpi .v small{font-size:.72rem; color:var(--ink3); font-weight:400;}
 .note{font-size:.86rem; color:var(--ink2); max-width:72ch;}
@@ -117,7 +126,9 @@ ul.tight{margin:8px 0 0; padding-left:18px; font-size:.88rem; color:var(--ink2);
 ul.tight li{margin-top:4px;}
 .footer{margin-top:22px; color:var(--ink3); font-size:.8rem; border-top:1px solid var(--line); padding-top:10px; max-width:80ch;}
 </style>
-
+</head>
+<body>
+<a class="skip" href="#out">Salta al contenuto</a>
 <div class="wrap">
 <header class="site">
   <h1>Programma Mesocicli</h1>
@@ -130,13 +141,13 @@ ul.tight li{margin-top:4px;}
     <div class="panel">
       <h2>Configurazione</h2>
       <div class="field">
-        <label class="lbl">Distretti target (scegline 2)</label>
-        <div class="chips" id="chips"></div>
+        <span class="lbl" id="lblTargets">Distretti target (scegline 2)</span>
+        <div class="chips" id="chips" role="group" aria-labelledby="lblTargets"></div>
         <div class="hint" id="chipHint"></div>
       </div>
       <div class="field">
-        <label class="lbl">Durata mesociclo</label>
-        <div class="seg" id="durSeg" role="group" aria-label="Durata in settimane"></div>
+        <span class="lbl" id="lblDur">Durata mesociclo</span>
+        <div class="seg" id="durSeg" role="group" aria-labelledby="lblDur"></div>
       </div>
       <div class="field switchrow">
         <label class="lbl" style="margin:0" for="deloadBtn">Scarico programmato</label>
@@ -170,7 +181,7 @@ ul.tight li{margin-top:4px;}
   <main id="out"></main>
 </div>
 
-<div class="footer">Le tacche MEV, MAV e MRV nel tally sono volumi di riferimento indicativi per distretto. I parametri di ogni riga (reps, ER, rest, tecnica) seguono il ruolo dell'esercizio scelto. Non è una prescrizione medica: i carichi li decide il tuo log. · <a href="../" style="color:inherit">Home</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" style="color:inherit" rel="noopener">Codice sorgente</a></div>
+<div class="footer">Le tacche MEV, MAV e MRV nel tally sono volumi di riferimento indicativi per distretto. I parametri di ogni riga (reps, ER, rest, tecnica) seguono il ruolo dell'esercizio scelto. Non è una prescrizione medica: i carichi li decide il tuo log. · <a href="../" style="color:inherit">Programma Mesocicli · il metodo</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" style="color:inherit" rel="noopener">Codice sorgente</a></div>
 </div>
 
 <script>
@@ -310,15 +321,24 @@ const POOL = {
 };
 /* parametri per ruolo */
 const RUOLI = {
-  madre:{reps:"6-8",  er:20, rest:"1,5-3'",  tec:""},
-  mecc: {reps:"8-10", er:15, rest:"1,5-3'",  tec:""},
-  iso:  {reps:"10-12",er:15, rest:"60-90''", tec:"SQUEEZE"},
+  madre:{reps:"6-8",  er:20, rest:"1,5-3\u2032",  tec:""},
+  mecc: {reps:"8-10", er:15, rest:"1,5-3\u2032",  tec:""},
+  iso:  {reps:"10-12",er:15, rest:"60-90\u2033", tec:"SQUEEZE"},
 };
 
 const STORE = "mesocicli.v1";
 let state = {targets:["petto","glutei"], dur:12, deload:true,
              peso:75, eta:30, alt:175, sesso:"M", mult:1.55, scelte:{}};
 try{ const s = JSON.parse(localStorage.getItem(STORE)); if(s && Array.isArray(s.targets)) state = Object.assign(state, s); }catch(e){}
+/* lo storage puo' contenere uno stato vecchio o manomesso: si sanifica sempre */
+state.targets = (Array.isArray(state.targets)?state.targets:[]).filter(k=>DISTRETTI[k]).slice(0,2);
+if(state.targets.length<2) state.targets = ["petto","dorso"].filter(k=>!state.targets.includes(k)).slice(0,2-state.targets.length).concat(state.targets);
+if(![8,12,16].includes(state.dur)) state.dur = 12;
+state.deload = state.deload!==false;
+if(state.sesso!=="F") state.sesso = "M";
+const CLAMP = {peso:[40,150,75], eta:[16,80,30], alt:[140,210,175], mult:[1.2,1.9,1.55]};
+Object.keys(CLAMP).forEach(k=>{ const [lo,hi,dv]=CLAMP[k]; const v=Number(state[k]); state[k]=isFinite(v)?Math.min(hi,Math.max(lo,v)):dv; });
+if(!state.scelte || typeof state.scelte!=="object" || Array.isArray(state.scelte)) state.scelte = {};
 function save(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} }
 
 /* ---------- allocazione volume ---------- */
@@ -349,7 +369,7 @@ function pickExercises(key, sets, startIdx){
   // ogni slot ha una chiave stabile e l'utente può cambiarne l'esercizio dal menu
   const pool = POOL[key]; const out = [];
   sets.forEach((s,i)=>{
-    const slot = key+"|"+((startIdx+i) % pool.length);
+    const slot = key+"|"+(startIdx+i);
     let idx = (startIdx+i) % pool.length;
     const sc = state.scelte && state.scelte[slot];
     if(Number.isInteger(sc) && pool[sc]) idx = sc;
@@ -580,7 +600,8 @@ $("#deloadBtn").setAttribute("aria-pressed", state.deload?"true":"false");
 $("#deloadBtn").onclick = ()=>{ state.deload=!state.deload; $("#deloadBtn").setAttribute("aria-pressed", state.deload?"true":"false"); save(); render(); };
 [["peso","peso"],["eta","eta"],["alt","alt"]].forEach(([id,k])=>{
   const el=$("#"+id); el.value=state[k];
-  el.oninput=()=>{ const v=parseFloat(el.value); if(isFinite(v)&&v>0){ state[k]=v; save(); render(); } };
+  el.oninput=()=>{ const v=parseFloat(el.value); const lo=parseFloat(el.min), hi=parseFloat(el.max);
+    if(isFinite(v)&&v>=lo&&v<=hi){ state[k]=v; save(); render(); } };
 });
 $("#sesso").value=state.sesso; $("#sesso").onchange=e=>{ state.sesso=e.target.value; save(); render(); };
 $("#mult").value=String(state.mult); $("#mult").onchange=e=>{ state.mult=parseFloat(e.target.value); save(); render(); };

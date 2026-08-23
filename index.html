@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programma Mesocicli · generatore di mesocicli di specializzazione</title>
+<title>Programma Mesocicli · generatore di schede per l'ipertrofia</title>
 <meta name="description" content="Scegli due distretti target e ottieni un mesociclo completo: 5 sedute, esercizi intercambiabili, volumi contro MEV/MAV/MRV, piano nutrizionale. Open source, gratis, senza account.">
 <link rel="canonical" href="https://uppifyagency.github.io/programma-mesocicli/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programma Mesocicli">
-<meta property="og:title" content="Programma Mesocicli · generatore di mesocicli di specializzazione">
+<meta property="og:title" content="Programma Mesocicli · generatore di schede per l'ipertrofia">
 <meta property="og:description" content="Due distretti target, cinque sedute, un log da battere. Generatore open source di mesocicli di specializzazione per l'ipertrofia.">
 <meta property="og:url" content="https://uppifyagency.github.io/programma-mesocicli/">
 <meta property="og:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
@@ -23,9 +23,10 @@
 <meta name="twitter:description" content="Generatore open source di mesocicli di specializzazione: 5 sedute, esercizi intercambiabili, volumi MEV/MAV/MRV, nutrizione.">
 <meta name="twitter:image" content="https://uppifyagency.github.io/programma-mesocicli/assets/og.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,77 +62,83 @@
 }
 </script>
 <style>
+@font-face{font-family:"Barlow Condensed Fallback";src:local("Arial Narrow");size-adjust:88%;}
 :root{
-  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#7B8794;
-  --line:#D5DAE0; --accent:#D9560B; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
+  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#5D6873;
+  --line:#D5DAE0; --accent:#D9560B; --accent-text:#B84708; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
   --ok:#2E7D46; --warn:#B07C0A; --crit:#B3362A;
 }
 @media (prefers-color-scheme: dark){
-  :root{
-    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#77828D;
-    --line:#313A44; --accent:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+  :root:not([data-theme="light"]){
+    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+    --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
     --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D;
   }
+}
+:root[data-theme="dark"]{
+  --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+  --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+  --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
 body{margin:0; background:var(--bg); color:var(--ink); font-family:Barlow,system-ui,sans-serif; font-size:16px; line-height:1.55;}
-h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif; margin:0; text-wrap:balance; text-transform:uppercase; letter-spacing:.01em;}
+h1,h2,h3{font-family:"Barlow Condensed","Barlow Condensed Fallback","Arial Narrow",sans-serif; margin:0; text-wrap:balance; text-transform:uppercase; letter-spacing:.01em;}
 h1{font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.02;}
 h2{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700;}
 h3{font-size:1.1rem; font-weight:700; letter-spacing:.04em;}
 p{margin:.6em 0}
-a{color:var(--accent)}
+a{color:var(--accent-text)}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
 .wrap{max-width:1100px; margin:0 auto; padding:0 20px;}
-.skip{position:absolute; left:-9999px; top:0; background:var(--accent); color:var(--accent-ink); padding:8px 14px; z-index:99;}
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent-text); color:var(--accent-ink); padding:8px 14px; z-index:99;}
 .skip:focus{left:12px; top:12px;}
 header.site{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line);}
 .nav{display:flex; align-items:center; gap:18px; padding:12px 0; flex-wrap:wrap;}
-.brand{display:flex; align-items:center; gap:9px; font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; font-size:1.15rem; color:var(--ink); text-decoration:none; letter-spacing:.03em;}
+.brand{display:flex; align-items:center; gap:9px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; font-size:1.15rem; color:var(--ink); text-decoration:none; letter-spacing:.03em;}
 .brand svg{flex:0 0 auto}
 .nav nav{display:flex; gap:16px; flex-wrap:wrap; margin-left:auto;}
-.nav nav a{color:var(--ink2); text-decoration:none; font-size:.94rem;}
+.nav nav a{color:var(--ink2); text-decoration:none; font-size:.94rem; padding:10px 4px; display:inline-block;}
 .nav nav a:hover{color:var(--ink)}
-.btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:11px 22px; font-size:1.05rem; border:2px solid var(--accent);}
+.btn{display:inline-block; background:var(--accent-text); color:var(--accent-ink); text-decoration:none; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:11px 22px; font-size:1.05rem; border:2px solid var(--accent-text);}
 .btn:hover{filter:brightness(1.06)}
 .btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
 .btn:focus-visible, a:focus-visible, summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
 .hero{padding:64px 0 40px; display:grid; grid-template-columns:1.15fr .85fr; gap:36px; align-items:center;}
 @media (max-width:860px){ .hero{grid-template-columns:1fr; padding-top:40px;} }
-.hero .kicker{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px;}
+.hero .kicker{font-family:"IBM Plex Mono",monospace; color:var(--accent-text); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px;}
 .hero p.lead{font-size:1.15rem; color:var(--ink2); max-width:52ch;}
 .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;}
 .hero .fine{font-size:.85rem; color:var(--ink3); margin-top:14px;}
 .mock{background:var(--surface); border:1px solid var(--line); padding:18px;}
 .mock .mk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:10px;}
-.mock .mk-head b{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; font-size:1rem;}
+.mock .mk-head b{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-size:1rem;}
 .mock .mk-head span{font-family:"IBM Plex Mono",monospace; font-size:.75rem; color:var(--ink3);}
 .mock table{width:100%; border-collapse:collapse; font-size:.78rem;}
 .mock td{padding:5px 4px; border-bottom:1px solid var(--line);}
 .mock td:last-child{text-align:right; font-family:"IBM Plex Mono",monospace; color:var(--ink2); white-space:nowrap;}
-.mock .tagx{display:inline-block; background:var(--accent-soft); border:1px solid var(--accent); font-size:.62rem; padding:0 5px; text-transform:uppercase; font-family:"Barlow Condensed",sans-serif; font-weight:600; margin-left:5px;}
+.mock .tagx{display:inline-block; background:var(--accent-soft); border:1px solid var(--accent); font-size:.62rem; padding:0 5px; text-transform:uppercase; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; margin-left:5px;}
 .mock .bars{margin-top:12px;}
 .mock .brow{display:grid; grid-template-columns:78px 1fr 34px; gap:8px; align-items:center; font-size:.72rem; padding:3px 0;}
-.mock .brow .lbl{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; font-weight:600;}
+.mock .brow .lbl{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-weight:600;}
 .mock .track{position:relative; height:10px; background:var(--surface2); border:1px solid var(--line);}
 .mock .fill{position:absolute; inset:0 auto 0 0;}
 .mock .tick{position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--ink3);}
 .mock .brow .num{font-family:"IBM Plex Mono",monospace; text-align:right; color:var(--ink2);}
 .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:26px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
 @media (max-width:700px){ .stats{grid-template-columns:repeat(2,1fr);} }
-.stat .n{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:2.2rem; color:var(--accent); line-height:1;}
-.stat .l{font-size:.85rem; color:var(--ink2); text-transform:uppercase; letter-spacing:.05em; font-family:"Barlow Condensed",sans-serif; font-weight:600;}
+.stat .n{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:2.2rem; color:var(--accent); line-height:1;}
+.stat .l{font-size:.85rem; color:var(--ink2); text-transform:uppercase; letter-spacing:.05em; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600;}
 section{padding:52px 0;}
-section .eyebrow{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+section .eyebrow{font-family:"IBM Plex Mono",monospace; color:var(--accent-text); font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
 @media (max-width:860px){ .cards{grid-template-columns:1fr;} }
 .card{background:var(--surface); border:1px solid var(--line); padding:20px;}
-.card .num{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.8rem; margin-bottom:8px;}
+.card .num{font-family:"IBM Plex Mono",monospace; color:var(--accent-text); font-size:.8rem; margin-bottom:8px;}
 .card p{color:var(--ink2); font-size:.95rem;}
 table.params{border-collapse:collapse; width:100%; margin-top:22px; font-size:.95rem; background:var(--surface);}
-table.params th{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:.8rem; color:var(--ink2); text-align:left; padding:10px 12px; border-bottom:2px solid var(--ink);}
+table.params th{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:.8rem; color:var(--ink2); text-align:left; padding:10px 12px; border-bottom:2px solid var(--ink);}
 table.params td{padding:10px 12px; border-bottom:1px solid var(--line);}
 table.params td.mono{white-space:nowrap;}
 .tablewrap{overflow-x:auto; border:1px solid var(--line);}
@@ -143,7 +150,7 @@ ul.checks li::before{content:""; position:absolute; left:2px; top:14px; width:12
 ul.checks li b{color:var(--ink)}
 .oss{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); padding:26px;}
 .faq details{background:var(--surface); border:1px solid var(--line); margin-top:10px;}
-.faq summary{cursor:pointer; padding:14px 18px; font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1rem;}
+.faq summary{cursor:pointer; padding:14px 18px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1rem;}
 .faq details[open] summary{border-bottom:1px solid var(--line);}
 .faq .a{padding:12px 18px 16px; color:var(--ink2); font-size:.95rem;}
 footer.site{border-top:1px solid var(--line); padding:28px 0 48px; color:var(--ink3); font-size:.85rem;}
@@ -176,15 +183,15 @@ footer.site a{color:var(--ink2)}
   <div class="hero">
     <div>
       <div class="kicker">Generatore di mesocicli · open source</div>
-      <h1>Due distretti target.<br>Cinque sedute.<br><span style="color:var(--accent)">Un log da battere.</span></h1>
-      <p class="lead">Scegli i due gruppi muscolari su cui vuoi crescere: il generatore concentra lì il volume, tiene il resto in mantenimento e ti consegna la settimana completa, esercizio per esercizio, con serie, ripetizioni, recuperi e piano calorico.</p>
+      <h1>Mesociclo di specializzazione:<br>due distretti target, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
+      <p class="lead">Scegli i due gruppi muscolari su cui vuoi crescere: il generatore concentra lì il volume, tiene il resto in mantenimento e ti consegna la settimana completa di scheda palestra, esercizio per esercizio, con serie, ripetizioni, recuperi e piano calorico.</p>
       <div class="cta">
-        <a class="btn" href="app/">Apri l'app</a>
+        <a class="btn" href="app/">Genera il tuo mesociclo</a>
         <a class="btn ghost" href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">Codice su GitHub</a>
       </div>
       <p class="fine">Gratis · nessun account · i dati restano nel tuo browser</p>
     </div>
-    <div class="mock" role="img" aria-label="Anteprima dell'app: tabella di una seduta e barre dei volumi per distretto">
+    <div class="mock" role="img" aria-label="Anteprima dell'app: tabella della sessione 1 (petto, 19 serie) e barre dei volumi per distretto contro le tacche MEV, MAV e MRV">
       <div class="mk-head"><b>Sessione 1 · Petto · giorno 1</b><span>19 serie</span></div>
       <table>
         <tr><td>Chest press inclinata<span class="tagx">madre</span></td><td>4 × 6-8 · ER 20</td></tr>
@@ -201,7 +208,7 @@ footer.site a{color:var(--ink2)}
     </div>
   </div>
 
-  <div class="stats" aria-label="Numeri chiave">
+  <div class="stats" role="group" aria-label="Numeri chiave">
     <div class="stat"><div class="n">2</div><div class="l">distretti target</div></div>
     <div class="stat"><div class="n">5</div><div class="l">sedute a settimana</div></div>
     <div class="stat"><div class="n">8-16</div><div class="l">settimane</div></div>

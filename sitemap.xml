@@ -8,6 +8,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/"/>
   </url>
   <url>
+    <loc>https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/"/>
+  </url>
+  <url>
+    <loc>https://programma-mesocicli.vercel.app/deficit-calorico/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/deficit-calorico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/deficit-calorico/"/>
+  </url>
+  <url>
+    <loc>https://programma-mesocicli.vercel.app/calcolo-macronutrienti/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/calcolo-macronutrienti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/calcolo-macronutrienti/"/>
+  </url>
+  <url>
+    <loc>https://programma-mesocicli.vercel.app/scheda-definizione/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/scheda-definizione/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/scheda-definizione/"/>
+  </url>
+  <url>
     <loc>https://programma-mesocicli.vercel.app/app/</loc>
     <lastmod>2026-08-26</lastmod>
     <xhtml:link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/app/"/>

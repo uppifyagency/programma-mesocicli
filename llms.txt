@@ -33,6 +33,10 @@ Una stima da formula sbaglia di ±10-15% sul singolo individuo. Il numero è un 
 
 ## Pagine
 
-- [Landing](https://programma-mesocicli.vercel.app/): calcolatore del cut, metodo, tabella dei volumi, metodologia con le fonti, 14 domande frequenti
+- [Home](https://programma-mesocicli.vercel.app/): il calcolatore completo, il metodo, la tabella dei volumi, la metodologia con le fonti, 19 domande frequenti
+- [Calcolo fabbisogno calorico](https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/): metabolismo basale e fabbisogno giornaliero (TDEE) con Mifflin-St Jeor, tabella dei fattori di attività, margine di errore dichiarato
+- [Deficit calorico](https://programma-mesocicli.vercel.app/deficit-calorico/): quanto tagliare per dimagrire, tabella deficit/perdita attesa/conseguenze, perché il target non scende sotto il metabolismo basale
+- [Calcolo macronutrienti](https://programma-mesocicli.vercel.app/calcolo-macronutrienti/): proteine, grassi e carboidrati in grammi e in g/kg, kcal per grammo di ciascun macro, perché non si usano le percentuali
+- [Scheda definizione](https://programma-mesocicli.vercel.app/scheda-definizione/): struttura dell'allenamento in deficit, tabella MEV/MAV/MRV, parametri per ruolo, durata del blocco
 - [Generatore](https://programma-mesocicli.vercel.app/app/): l'app completa; accetta i dati in querystring (sesso, eta, peso, alt, mult, target, dur)
 - [Repository](https://github.com/uppifyagency/programma-mesocicli): codice sorgente, licenza MIT

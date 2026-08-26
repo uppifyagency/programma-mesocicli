@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo fabbisogno calorico giornaliero (TDEE) e metabolismo basale</title>
+<meta name="description" content="Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser.">
+<link rel="canonical" href="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="author" content="Programma Mesocicli">
+<link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/">
+<link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Programma Mesocicli">
+<meta property="og:title" content="Calcolo del fabbisogno calorico giornaliero">
+<meta property="og:description" content="Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser.">
+<meta property="og:url" content="https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/">
+<meta property="og:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcolo del fabbisogno calorico giornaliero">
+<meta name="twitter:description" content="Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser.">
+<meta name="twitter:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#webpage",
+      "url": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/",
+      "name": "Calcolo fabbisogno calorico giornaliero (TDEE) e metabolismo basale",
+      "description": "Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser.",
+      "inLanguage": "it-IT",
+      "isPartOf": {
+        "@id": "https://programma-mesocicli.vercel.app/#website"
+      },
+      "datePublished": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "breadcrumb": {
+        "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#breadcrumb"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Fabbisogno calorico giornaliero"
+        },
+        {
+          "@type": "Thing",
+          "name": "Metabolismo basale"
+        },
+        {
+          "@type": "Thing",
+          "name": "Equazione di Mifflin-St Jeor"
+        },
+        {
+          "@type": "Thing",
+          "name": "Total Daily Energy Expenditure"
+        },
+        {
+          "@type": "Thing",
+          "name": "Fattore di attività fisica"
+        }
+      ],
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://programma-mesocicli.vercel.app/assets/og.png"
+      },
+      "citation": [
+        {
+          "@type": "ScholarlyArticle",
+          "name": "A new predictive equation for resting energy expenditure in healthy individuals",
+          "datePublished": "1990",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "American Journal of Clinical Nutrition"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Programma Mesocicli",
+          "item": "https://programma-mesocicli.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fabbisogno calorico",
+          "item": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
+      "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#tool",
+      "name": "Calcolatore del fabbisogno calorico giornaliero",
+      "url": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Fitness",
+      "operatingSystem": "Qualsiasi browser web",
+      "inLanguage": "it-IT",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
+      "codeRepository": "https://github.com/uppifyagency/programma-mesocicli",
+      "publisher": {
+        "@id": "https://programma-mesocicli.vercel.app/#organization"
+      },
+      "description": "Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#faq",
+      "inLanguage": "it-IT",
+      "isPartOf": {
+        "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual è la differenza tra BMR e TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il BMR è quello che consumi da fermo, il TDEE è quello che consumi vivendo la tua giornata. Il metabolismo basale (BMR) è l'energia minima per tenere in funzione l'organismo a riposo assoluto, e vale il 60-70% del totale. Il fabbisogno calorico giornaliero (TDEE) è il BMR moltiplicato per un fattore che aggiunge movimento, allenamento e digestione. Il calcolatore mostra entrambi: il deficit per dimagrire si sottrae sempre dal TDEE, mai dal BMR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come faccio a calcolare il mio fabbisogno calorico giornaliero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calcoli prima il metabolismo basale con Mifflin-St Jeor (10×peso in kg + 6,25×altezza in cm − 5×età, più 5 per gli uomini o meno 161 per le donne), poi lo moltiplichi per il fattore di attività che corrisponde al tuo stile di vita, da 1,2 se sei sedentario a 1,9 se fai un lavoro fisico pesante. Il calcolatore in cima alla pagina fa entrambi i passaggi e ti mostra i due numeri separati."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come posso calcolare il fabbisogno calorico in base al mio peso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il peso da solo non basta: la stessa equazione ha bisogno anche di altezza, età e sesso, perché a parità di peso una persona alta e giovane consuma più di una bassa e anziana. Esistono regole spannometriche del tipo 30-33 kcal per kg di peso corporeo, ma hanno un margine di errore molto più largo. Se vuoi un numero utile, servono i quattro dati."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché il mio fabbisogno calorico sembra troppo alto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quasi sempre perché il fattore di attività scelto è troppo generoso. \"Attivo\" non significa allenarsi tre volte a settimana stando poi seduto tutto il giorno: quella è una giornata da 1,375. La differenza fra 1,55 e 1,725 su un basale di 1.700 kcal vale quasi 300 kcal, cioè la differenza fra dimagrire e stare fermi. Nel dubbio scendi di un gradino."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il fabbisogno calorico cambia mentre dimagrisco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, e scende. Perdendo peso il metabolismo basale cala perché c'è meno massa da mantenere, e in deficit prolungato tende a calare anche il NEAT: ci si muove meno senza accorgersene. È il motivo per cui un deficit che funzionava all'inizio smette di funzionare dopo qualche settimana. Il calcolo va rifatto ogni 4-5 kg persi, o quando il peso si ferma per due settimane di fila."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il calcolo vale anche per le donne?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. L'equazione di Mifflin-St Jeor ha un coefficiente diverso per sesso (−161 per le donne invece di +5), quindi il risultato esce già tarato. A parità di peso e altezza il fabbisogno femminile è più basso, perché in media la massa magra è inferiore."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:"Barlow Fallback";src:local("Arial"),local("Helvetica Neue"),local("Liberation Sans");size-adjust:97.6%;ascent-override:100%;descent-override:20%;line-gap-override:0%;}
+@font-face{font-family:"IBM Plex Mono Fallback";src:local("Courier New"),local("Liberation Mono");size-adjust:100%;ascent-override:102.5%;descent-override:27.5%;line-gap-override:0%;}
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/barlow-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/barlow-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-condensed-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-condensed-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/barlow-condensed-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face{font-family:"Barlow Condensed Fallback";src:local("Arial Narrow");size-adjust:88%;}
+:root{
+  --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#5D6873;
+  --line:#D5DAE0; --accent:#D9560B; --accent-text:#B84708; --accent-ink:#FFFFFF; --accent-soft:#FBE9DD;
+  --ok:#2E7D46; --warn:#B07C0A; --crit:#B3362A;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+    --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+    --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13171C; --surface:#1B2128; --surface2:#232A33; --ink:#E8ECEF; --ink2:#A8B2BC; --ink3:#87929D;
+  --line:#313A44; --accent:#F0762E; --accent-text:#F0762E; --accent-ink:#181206; --accent-soft:#3A2617;
+  --ok:#5CB878; --warn:#D9A93C; --crit:#E06A5D;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--bg); color:var(--ink); font-family:Barlow,"Barlow Fallback",system-ui,sans-serif; font-size:16px; line-height:1.55;}
+h1,h2,h3{font-family:"Barlow Condensed","Barlow Condensed Fallback","Arial Narrow",sans-serif; margin:0; text-wrap:balance; text-transform:uppercase; letter-spacing:.01em;}
+h1{font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.02;}
+h2{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700;}
+h3{font-size:1.1rem; font-weight:700; letter-spacing:.04em;}
+p{margin:.6em 0}
+a{color:var(--accent-text)}
+.mono{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+.wrap{max-width:1100px; margin:0 auto; padding:0 20px;}
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent-text); color:var(--accent-ink); padding:8px 14px; z-index:99;}
+.skip:focus{left:12px; top:12px;}
+header.site{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line);}
+.nav{display:flex; align-items:center; gap:18px; padding:12px 0; flex-wrap:wrap;}
+.brand{display:flex; align-items:center; gap:9px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; font-size:1.15rem; color:var(--ink); text-decoration:none; letter-spacing:.03em;}
+.brand svg{flex:0 0 auto}
+.nav nav{display:flex; gap:16px; flex-wrap:wrap; margin-left:auto;}
+.nav nav a{color:var(--ink2); text-decoration:none; font-size:.94rem; padding:10px 4px; display:inline-block;}
+.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-block; background:var(--accent-text); color:var(--accent-ink); text-decoration:none; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:11px 22px; font-size:1.05rem; border:2px solid var(--accent-text);}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
+.btn:focus-visible, a:focus-visible, summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.hero{padding:64px 0 40px; display:grid; grid-template-columns:1.15fr .85fr; gap:36px; align-items:center;}
+@media (max-width:860px){ .hero{grid-template-columns:1fr; padding-top:40px;} }
+.hero .kicker{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; color:var(--accent-text); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px;}
+.hero p.lead{font-size:1.15rem; color:var(--ink2); max-width:52ch;}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;}
+.hero .fine{font-size:.85rem; color:var(--ink3); margin-top:14px;}
+.mock{background:var(--surface); border:1px solid var(--line); padding:18px;}
+.mock .mk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:10px;}
+.mock .mk-head b{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-size:1rem;}
+.mock .mk-head span{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; font-size:.75rem; color:var(--ink3);}
+.mock table{width:100%; border-collapse:collapse; font-size:.78rem;}
+.mock td{padding:5px 4px; border-bottom:1px solid var(--line);}
+.mock td:last-child{text-align:right; font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; color:var(--ink2); white-space:nowrap;}
+.mock .tagx{display:inline-block; background:var(--accent-soft); border:1px solid var(--accent); font-size:.62rem; padding:0 5px; text-transform:uppercase; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; margin-left:5px;}
+.mock .bars{margin-top:12px;}
+.mock .brow{display:grid; grid-template-columns:78px 1fr 34px; gap:8px; align-items:center; font-size:.72rem; padding:3px 0;}
+.mock .brow .lbl{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-weight:600;}
+.mock .track{position:relative; height:10px; background:var(--surface2); border:1px solid var(--line);}
+.mock .fill{position:absolute; inset:0 auto 0 0;}
+.mock .tick{position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--ink3);}
+.mock .brow .num{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; text-align:right; color:var(--ink2);}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:26px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+@media (max-width:700px){ .stats{grid-template-columns:repeat(2,1fr);} }
+.stat .n{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:2.2rem; color:var(--accent); line-height:1;}
+.stat .l{font-size:.85rem; color:var(--ink2); text-transform:uppercase; letter-spacing:.05em; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600;}
+section{padding:52px 0;}
+section .eyebrow{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; color:var(--accent-text); font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
+@media (max-width:860px){ .cards{grid-template-columns:1fr;} }
+.card{background:var(--surface); border:1px solid var(--line); padding:20px;}
+.card .num{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; color:var(--accent-text); font-size:.8rem; margin-bottom:8px;}
+.card p{color:var(--ink2); font-size:.95rem;}
+table.params{border-collapse:collapse; width:100%; margin-top:22px; font-size:.95rem; background:var(--surface);}
+table.params th{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; letter-spacing:.05em; font-size:.8rem; color:var(--ink2); text-align:left; padding:10px 12px; border-bottom:2px solid var(--ink);}
+table.params td{padding:10px 12px; border-bottom:1px solid var(--line);}
+table.params td.mono{white-space:nowrap;}
+.tablewrap{overflow-x:auto; border:1px solid var(--line);}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; margin-top:20px;}
+@media (max-width:860px){ .split{grid-template-columns:1fr;} }
+ul.checks{list-style:none; padding:0; margin:14px 0 0;}
+ul.checks li{padding:7px 0 7px 26px; position:relative; color:var(--ink2);}
+ul.checks li::before{content:""; position:absolute; left:2px; top:14px; width:12px; height:12px; background:var(--accent);}
+ul.checks li b{color:var(--ink)}
+.oss{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); padding:26px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.lead-a{color:var(--ink2); font-size:1.02rem; max-width:62ch; margin:10px 0 0;}
+.faq details{background:var(--surface); border:1px solid var(--line); margin-top:10px;}
+.faq summary{cursor:pointer; padding:14px 18px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1rem;}
+.faq details[open] summary{border-bottom:1px solid var(--line);}
+.faq .a{padding:12px 18px 16px; color:var(--ink2); font-size:.95rem;}
+footer.site{border-top:1px solid var(--line); padding:28px 0 48px; color:var(--ink3); font-size:.85rem;}
+footer.site a{color:var(--ink2)}
+.footgrid{display:flex; gap:24px; flex-wrap:wrap; justify-content:space-between;}
+/* calcolatore del cut in pagina */
+.calc{background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--accent); padding:18px;}
+.calc .mk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:12px;}
+.calc .mk-head b{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; text-transform:uppercase; font-size:1.05rem; letter-spacing:.03em;}
+.calc .mk-head span{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; font-size:.72rem; color:var(--ink3);}
+.calc .crow{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.calc .fld{margin-bottom:10px;}
+.calc label{display:block; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:.76rem; color:var(--ink2); margin-bottom:4px;}
+.calc input, .calc select{width:100%; border:1px solid var(--line); background:var(--surface2); color:var(--ink); padding:8px 9px; font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; font-size:.92rem;}
+.calc input:focus-visible, .calc select:focus-visible{outline:3px solid var(--accent); outline-offset:1px;}
+.cout{border-top:1px solid var(--line); margin-top:6px; padding-top:10px;}
+.cout .r{display:flex; justify-content:space-between; gap:10px; font-size:.86rem; padding:4px 0; border-bottom:1px dotted var(--line);}
+.cout .r:last-child{border-bottom:0;}
+.cout .r .k{color:var(--ink2);}
+.cout .r .v{font-family:"IBM Plex Mono","IBM Plex Mono Fallback",monospace; font-variant-numeric:tabular-nums; white-space:nowrap;}
+.cout .r.big{border-bottom:0; align-items:baseline; padding:8px 0 2px;}
+.cout .r.big .k{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em; font-size:.95rem; color:var(--ink);}
+.cout .r.big .v{font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:700; font-size:1.9rem; color:var(--accent-text); line-height:1;}
+.calc .go{display:block; text-align:center; margin-top:12px;}
+.calc .fine{font-size:.76rem; color:var(--ink3); margin:10px 0 0;}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenuto">Salta al contenuto</a>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../" aria-label="Programma Mesocicli, torna in cima">
+      <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="var(--accent)"/><rect x="12" y="38" width="8" height="14" fill="#fff"/><rect x="24" y="28" width="8" height="24" fill="#fff"/><rect x="36" y="18" width="8" height="34" fill="#fff"/><rect x="48" y="10" width="4" height="42" fill="#fff" opacity=".55"/></svg>
+      Programma Mesocicli
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="../">Home</a>
+      <a href="#top" aria-current="page">Fabbisogno calorico</a>
+      <a href="../deficit-calorico/">Deficit calorico</a>
+      <a href="../calcolo-macronutrienti/">Macronutrienti</a>
+      <a href="../scheda-definizione/">Scheda definizione</a>
+      <a href="../app/">Generatore</a>
+      <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap" id="top">
+  <div class="hero" style="padding-top:26px">
+    <div>
+      <div class="kicker">Calcolatore · Mifflin-St Jeor</div>
+      <h1>Calcolo del fabbisogno<br>calorico giornaliero</h1>
+      <p class="lead">Quante calorie consumi in una giornata, contando tutto: il metabolismo basale, il movimento, l'allenamento e la digestione. Metti i tuoi dati e il numero esce subito, con il basale separato dal totale così vedi da dove viene.</p>
+      <div class="cta">
+        <a class="btn" href="#strumento">Calcola il fabbisogno</a>
+        <a class="btn ghost" href="../app/">Genera la scheda</a>
+      </div>
+      <p class="micro">Gratis · nessun account · i dati restano nel tuo browser</p>
+    </div>
+  </div>
+</div>
+
+<main id="contenuto">
+<div class="wrap">
+  <section id="strumento" aria-labelledby="h-strumento">
+    <h2 id="h-strumento" class="sr-only">Calcolatore del fabbisogno calorico giornaliero</h2>
+    <form class="calc" id="strumento-form" onsubmit="return false">
+      <div class="mk-head"><b>Calcola il fabbisogno calorico</b><span>Mifflin-St Jeor</span></div>
+      <div class="crow">
+        <div class="fld"><label for="c-sesso">Sesso</label>
+          <select id="c-sesso"><option value="M">Uomo</option><option value="F">Donna</option></select></div>
+        <div class="fld"><label for="c-eta">Età</label>
+          <input type="number" id="c-eta" value="30" min="16" max="80" step="1" inputmode="numeric"></div>
+      </div>
+      <div class="crow">
+        <div class="fld"><label for="c-peso">Peso kg</label>
+          <input type="number" id="c-peso" value="75" min="40" max="150" step="0.5" inputmode="decimal"></div>
+        <div class="fld"><label for="c-alt">Altezza cm</label>
+          <input type="number" id="c-alt" value="175" min="140" max="210" step="1" inputmode="numeric"></div>
+      </div>
+      <div class="fld"><label for="c-mult">Attività quotidiana</label>
+        <select id="c-mult">
+          <option value="1.2">Sedentario, lavoro da fermo</option>
+          <option value="1.375">Poco attivo, cammino qualche volta</option>
+          <option value="1.55" selected>Attivo, cammino ogni giorno</option>
+          <option value="1.725">Molto attivo, lavoro in movimento</option>
+          <option value="1.9">Attività fisica pesante tutti i giorni</option>
+        </select>
+      </div>
+      <div class="cout" id="cout" data-vista="fabbisogno" aria-live="polite"></div>
+      <a class="btn go" id="c-go" href="../app/">Genera la scheda</a>
+      <p class="fine">Nessun dato lascia il browser. I numeri sono una stima da formula: vanno corretti sul peso reale dopo due settimane.</p>
+    </form>
+  </section>
+
+  <section aria-labelledby="h-cos">
+    <div class="eyebrow">La definizione</div>
+    <h2 id="h-cos">Che cos'è il fabbisogno calorico giornaliero?</h2>
+    <p class="lead-a">È l'energia totale che il tuo corpo consuma in ventiquattr'ore. In inglese si chiama TDEE, Total Daily Energy Expenditure: è lo stesso numero, con un altro nome.</p>
+    <div class="split" style="margin-top:22px">
+      <div>
+        <h3>Da che cosa è composto?</h3>
+        <p style="color:var(--ink2)">Da quattro voci. Il <b>metabolismo basale</b> (BMR) è quello che bruci da fermo per tenere in funzione cuore, respiro, cervello e temperatura: da solo vale il 60-70% del totale. Poi c'è la <b>termogenesi indotta dalla dieta</b>, l'energia spesa per digerire, intorno al 10%. Poi l'<b>attività fisica strutturata</b>, cioè l'allenamento. E infine il <b>NEAT</b>, tutto il movimento non sportivo della giornata: camminare, stare in piedi, gesticolare. Il NEAT è la voce che varia di più fra due persone dello stesso peso, e la ragione per cui il fattore di attività è la parte più imprecisa del calcolo.</p>
+      </div>
+      <div>
+        <h3>Come si calcola il metabolismo basale?</h3>
+        <p style="color:var(--ink2)">Con l'equazione di Mifflin-St Jeor, che nel 1990 ha sostituito la vecchia Harris-Benedict perché sbaglia meno sulle popolazioni moderne:</p>
+        <p class="mono" style="background:var(--surface2); padding:12px 14px; font-size:.88rem; overflow-x:auto">Uomini: 10×peso(kg) + 6,25×altezza(cm) − 5×età + 5<br>Donne: 10×peso(kg) + 6,25×altezza(cm) − 5×età − 161</p>
+        <p style="color:var(--ink2)">Il risultato si moltiplica poi per il fattore di attività, e quello è il fabbisogno giornaliero. È esattamente ciò che fa il calcolatore qui sopra.</p>
+      </div>
+    </div>
+    <figure style="margin:22px 0 0">
+      <figcaption class="eyebrow" style="margin-bottom:8px">I fattori di attività (LAF)</figcaption>
+      <table class="params">
+        <caption class="sr-only">Fattori di attività fisica e moltiplicatore corrispondente</caption>
+        <thead><tr><th scope="col">Stile di vita</th><th scope="col">Fattore</th><th scope="col">Chi ci rientra</th></tr></thead>
+        <tbody>
+          <tr><td>Sedentario</td><td class="mono">1,2</td><td>Lavoro da fermo, nessun allenamento</td></tr>
+          <tr><td>Poco attivo</td><td class="mono">1,375</td><td>Allenamento leggero 1-3 volte a settimana</td></tr>
+          <tr><td>Attivo</td><td class="mono">1,55</td><td>Allenamento 3-5 volte a settimana, cammini ogni giorno</td></tr>
+          <tr><td>Molto attivo</td><td class="mono">1,725</td><td>Allenamento 6-7 volte a settimana o lavoro in movimento</td></tr>
+          <tr><td>Estremamente attivo</td><td class="mono">1,9</td><td>Lavoro fisico pesante più allenamento quotidiano</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--ink3); font-size:.85rem; margin-top:10px">Il fattore è la parte meno precisa del calcolo: sovrastimarlo è l'errore più comune, e produce un fabbisogno più alto del reale. Nel dubbio scegli il gradino più basso e correggi dopo due settimane di pesate.</p>
+    </figure>
+  </section>
+
+  <section aria-labelledby="h-uso">
+    <div class="eyebrow">Come si usa</div>
+    <h2 id="h-uso">A che cosa serve conoscere il fabbisogno calorico?</h2>
+    <p class="lead-a">È il punto di partenza di qualsiasi obiettivo: si dimagrisce mangiando sotto quel numero, si mette peso mangiando sopra, si mantiene restandoci intorno.</p>
+    <div class="cards" style="margin-top:20px">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Per dimagrire</h3>
+        <p>Si sottrae un deficit, tipicamente il 15-25% del fabbisogno. <a href="../deficit-calorico/">Il calcolatore del deficit</a> fa il conto e ti dice la perdita attesa a settimana.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Per dividere le calorie</h3>
+        <p>Una volta fissato il totale, va ripartito fra proteine, grassi e carboidrati. <a href="../calcolo-macronutrienti/">Il calcolatore dei macronutrienti</a> lo fa in grammi.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Per allenarti di conseguenza</h3>
+        <p>Quante calorie mangi decide quanto volume riesci a recuperare. <a href="../scheda-definizione/">La scheda di definizione</a> parte da lì.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-limiti">
+    <div class="eyebrow">Precisione</div>
+    <h2 id="h-limiti">Quanto è preciso questo calcolo?</h2>
+    <p class="lead-a">Sbaglia di circa ±10% sulla maggior parte delle persone, e di più su chi sta agli estremi di peso o composizione corporea. È una stima statistica, non una misura.</p>
+    <p style="color:var(--ink2); max-width:70ch">L'equazione è costruita su medie di popolazione: due persone con gli stessi peso, altezza, età e sesso possono avere fabbisogni diversi di parecchie centinaia di calorie, per massa magra, genetica, tiroide, farmaci e soprattutto NEAT. La misura vera si fa con la calorimetria indiretta, che richiede un laboratorio. Per questo il numero che leggi qui va trattato come un punto di partenza: mangi a quel livello per due settimane, pesi il risultato e correggi. Il dato reale è la variazione sulla bilancia, non l'output della formula.</p>
+  </section>
+
+
+  <section id="faq" class="faq" aria-labelledby="h-faq">
+    <div class="eyebrow">FAQ</div>
+    <h2 id="h-faq">Domande frequenti</h2>
+    <details>
+      <summary>Qual è la differenza tra BMR e TDEE?</summary>
+      <div class="a">Il BMR è quello che consumi da fermo, il TDEE è quello che consumi vivendo la tua giornata. Il metabolismo basale (BMR) è l'energia minima per tenere in funzione l'organismo a riposo assoluto, e vale il 60-70% del totale. Il fabbisogno calorico giornaliero (TDEE) è il BMR moltiplicato per un fattore che aggiunge movimento, allenamento e digestione. Il calcolatore mostra entrambi: il deficit per dimagrire si sottrae sempre dal TDEE, mai dal BMR.</div>
+    </details>
+    <details>
+      <summary>Come faccio a calcolare il mio fabbisogno calorico giornaliero?</summary>
+      <div class="a">Calcoli prima il metabolismo basale con Mifflin-St Jeor (10×peso in kg + 6,25×altezza in cm − 5×età, più 5 per gli uomini o meno 161 per le donne), poi lo moltiplichi per il fattore di attività che corrisponde al tuo stile di vita, da 1,2 se sei sedentario a 1,9 se fai un lavoro fisico pesante. Il calcolatore in cima alla pagina fa entrambi i passaggi e ti mostra i due numeri separati.</div>
+    </details>
+    <details>
+      <summary>Come posso calcolare il fabbisogno calorico in base al mio peso?</summary>
+      <div class="a">Il peso da solo non basta: la stessa equazione ha bisogno anche di altezza, età e sesso, perché a parità di peso una persona alta e giovane consuma più di una bassa e anziana. Esistono regole spannometriche del tipo 30-33 kcal per kg di peso corporeo, ma hanno un margine di errore molto più largo. Se vuoi un numero utile, servono i quattro dati.</div>
+    </details>
+    <details>
+      <summary>Perché il mio fabbisogno calorico sembra troppo alto?</summary>
+      <div class="a">Quasi sempre perché il fattore di attività scelto è troppo generoso. "Attivo" non significa allenarsi tre volte a settimana stando poi seduto tutto il giorno: quella è una giornata da 1,375. La differenza fra 1,55 e 1,725 su un basale di 1.700 kcal vale quasi 300 kcal, cioè la differenza fra dimagrire e stare fermi. Nel dubbio scendi di un gradino.</div>
+    </details>
+    <details>
+      <summary>Il fabbisogno calorico cambia mentre dimagrisco?</summary>
+      <div class="a">Sì, e scende. Perdendo peso il metabolismo basale cala perché c'è meno massa da mantenere, e in deficit prolungato tende a calare anche il NEAT: ci si muove meno senza accorgersene. È il motivo per cui un deficit che funzionava all'inizio smette di funzionare dopo qualche settimana. Il calcolo va rifatto ogni 4-5 kg persi, o quando il peso si ferma per due settimane di fila.</div>
+    </details>
+    <details>
+      <summary>Il calcolo vale anche per le donne?</summary>
+      <div class="a">Sì. L'equazione di Mifflin-St Jeor ha un coefficiente diverso per sesso (−161 per le donne invece di +5), quindi il risultato esce già tarato. A parità di peso e altezza il fabbisogno femminile è più basso, perché in media la massa magra è inferiore.</div>
+    </details>
+  </section>
+
+  <section aria-labelledby="h-altri">
+    <div class="eyebrow">Gli altri strumenti</div>
+    <h2 id="h-altri">Che altro c'è da calcolare?</h2>
+    <p class="lead-a">Ogni strumento risponde a una domanda diversa dello stesso percorso: quanto consumi, quanto tagliare, come dividere le calorie, come allenarti.</p>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card">
+        <h3 style="margin-top:0"><a href="../deficit-calorico/" style="color:inherit">Deficit calorico</a></h3>
+        <p style="color:var(--ink2)">Quanto tagliare per dimagrire senza perdere muscolo, con la perdita attesa a settimana.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0"><a href="../calcolo-macronutrienti/" style="color:inherit">Macronutrienti</a></h3>
+        <p style="color:var(--ink2)">Proteine, grassi e carboidrati in grammi e in g/kg, calcolati sulle tue calorie.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0"><a href="../scheda-definizione/" style="color:inherit">Scheda definizione</a></h3>
+        <p style="color:var(--ink2)">Come si struttura l'allenamento quando le calorie sono basse, e il generatore che la scrive.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0"><a href="../app/" style="color:inherit">Il generatore di schede</a></h3>
+        <p style="color:var(--ink2)">Due distretti target, cinque sedute a settimana, volumi confrontati con MEV, MAV e MRV.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap footgrid">
+    <div>Programma Mesocicli · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
+    <div>Non è una prescrizione medica: prima di iniziare un programma di allenamento o una dieta, parlane con un professionista.</div>
+  </div>
+</footer>
+<script>
+/* Stessa aritmetica della landing e del generatore: i numeri devono combaciare
+   fra le pagine, quindi la formula sta in un punto solo. La vista cambia solo
+   quali righe vengono mostrate. */
+(function(){
+  var F = {sesso:"c-sesso", eta:"c-eta", peso:"c-peso", alt:"c-alt", mult:"c-mult"};
+  Object.keys(F).forEach(function(k){ F[k] = document.getElementById(F[k]); });
+  var out = document.getElementById("cout"), go = document.getElementById("c-go");
+  if(!out || !go || Object.keys(F).some(function(k){ return !F[k]; })) return;
+  var vista = out.getAttribute("data-vista") || "fabbisogno";
+  var LIM = {eta:[16,80,30], peso:[40,150,75], alt:[140,210,175]};
+  var nf = new Intl.NumberFormat("it-IT");
+  var n1 = new Intl.NumberFormat("it-IT", {minimumFractionDigits:1, maximumFractionDigits:1});
+  var n2 = new Intl.NumberFormat("it-IT", {minimumFractionDigits:2, maximumFractionDigits:2});
+  var n3 = new Intl.NumberFormat("it-IT", {minimumFractionDigits:0, maximumFractionDigits:3});
+
+  function val(k){
+    var lim = LIM[k], v = parseFloat(F[k].value);
+    return isFinite(v) ? Math.min(lim[1], Math.max(lim[0], v)) : lim[2];
+  }
+  function row(k, v, cls){
+    return '<div class="r'+(cls?" "+cls:"")+'"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';
+  }
+  function calc(){
+    var sesso = F.sesso.value === "F" ? "F" : "M";
+    var mult = parseFloat(F.mult.value) || 1.55;
+    var peso = val("peso"), eta = val("eta"), alt = val("alt");
+    var bmr = 10*peso + 6.25*alt - 5*eta + (sesso === "M" ? 5 : -161);
+    var tdee = bmr*mult;
+    var grezzo = Math.round(tdee - 625);
+    var media = Math.max(grezzo, Math.round(bmr));
+    var deficit = Math.round(tdee) - media;
+    var ridotto = media > grezzo;
+    var feriali = media - 170;
+    var weekend = Math.round((media*7 - feriali*5)/2);
+    var P = Math.round(peso*2.0), G = Math.round(peso*0.75);
+    var C = Math.max(0, Math.round((media - P*4 - G*9)/4));
+    var kgSett = deficit*7/7700;
+    var pctPeso = kgSett/peso*100;
+    var h = "";
+
+    if(vista === "fabbisogno"){
+      h += row("Fabbisogno giornaliero (TDEE)", nf.format(Math.round(tdee))+" kcal", "big");
+      h += row("Metabolismo basale (BMR)", nf.format(Math.round(bmr))+" kcal");
+      h += row("Fattore di attività", "× "+n3.format(mult));
+      h += row("Quota da movimento", nf.format(Math.round(tdee-bmr))+" kcal");
+      h += row("Per mantenere il peso", nf.format(Math.round(tdee))+" kcal al giorno");
+      h += row("Per dimagrire (−15%)", nf.format(Math.round(tdee*0.85))+" kcal al giorno");
+      h += row("Per dimagrire (−25%)", nf.format(Math.round(tdee*0.75))+" kcal al giorno");
+    } else if(vista === "deficit"){
+      h += row("Calorie in deficit", nf.format(media)+" kcal", "big");
+      h += row("Fabbisogno giornaliero", nf.format(Math.round(tdee))+" kcal");
+      h += row("Deficit applicato", "−"+nf.format(deficit)+" kcal al giorno");
+      h += row("In percentuale", "−"+n1.format(deficit/tdee*100)+"% del fabbisogno");
+      h += row("Perdita attesa", "−"+n2.format(kgSett)+" kg a settimana");
+      h += row("Sul peso corporeo", "−"+n2.format(pctPeso)+"% a settimana");
+      h += row("Feriali / weekend", nf.format(feriali)+" / "+nf.format(weekend)+" kcal");
+      h += row("Pavimento (BMR)", nf.format(Math.round(bmr))+" kcal, da non superare in basso");
+    } else {
+      h += row("Calorie di riferimento", nf.format(media)+" kcal", "big");
+      h += row("Proteine", nf.format(P)+" g · 2,0 g/kg · "+nf.format(P*4)+" kcal");
+      h += row("Grassi", nf.format(G)+" g · 0,75 g/kg · "+nf.format(G*9)+" kcal");
+      h += row("Carboidrati", nf.format(C)+" g · "+n1.format(C/peso)+" g/kg · "+nf.format(C*4)+" kcal");
+      h += row("Ripartizione", n1.format(P*4/media*100)+"% / "+n1.format(G*9/media*100)+"% / "+n1.format(C*4/media*100)+"%");
+      h += row("Fabbisogno giornaliero", nf.format(Math.round(tdee))+" kcal");
+    }
+
+    if(ridotto && vista !== "fabbisogno"){
+      h += '<p class="fine" style="color:var(--crit); margin:8px 0 0">Il deficit pieno di 625 kcal ti porterebbe sotto il metabolismo basale, quindi è stato ridotto a '+nf.format(deficit)+' kcal. Con numeri così bassi vale la pena farsi seguire da un professionista.</p>';
+    }
+    out.innerHTML = h;
+    go.setAttribute("href", "../app/?sesso="+sesso+"&eta="+eta+"&peso="+peso+"&alt="+alt+"&mult="+mult);
+  }
+  Object.keys(F).forEach(function(k){
+    F[k].addEventListener("input", calc);
+    F[k].addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

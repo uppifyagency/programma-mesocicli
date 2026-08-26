@@ -44,6 +44,46 @@ robots.txt, sitemap.xml, llms.txt
 vercel.json       header e cache per il deploy su Vercel
 ```
 
+## SEO e indicizzazione
+
+Impostata sullo stato dell'arte 2026 (skill `seo-2026-sota`). Le scelte che non
+vanno rotte per sbaglio:
+
+- **Titoli in forma di domanda con risposta atomica** nella prima riga sotto. E il
+  pattern che AI Overviews e gli LLM estraggono come citazione: se un H2 torna a
+  essere uno slogan, quella sezione smette di essere citabile.
+- **Un solo `@graph` JSON-LD** per pagina (Organization, WebSite, WebPage,
+  BreadcrumbList, SoftwareApplication, HowTo, FAQPage). Le FAQ nello schema sono
+  **generate dal DOM**: se aggiungi un `<details>` alla FAQ, rigenera il blocco
+  invece di scriverlo a mano, altrimenti schema e pagina divergono.
+- **Font self-hosted** in `assets/fonts/` con `@font-face` inline nella pagina.
+  Non rimettere il `<link>` a fonts.googleapis.com: era l'unica risorsa
+  render-blocking rimasta (-300ms) e l'unica richiesta a terzi, che contraddiceva
+  il claim "zero tracker" scritto in pagina.
+- **Il contenuto statico su `/app/` sta nel primo response.** I crawler dei motori
+  generativi non eseguono JavaScript: senza quel blocco la pagina del generatore
+  e praticamente vuota per ChatGPT, Claude e Perplexity. La scheda generata dal JS
+  non li raggiunge.
+- **`robots.txt` ammette i crawler AI** di proposito (GPTBot, ClaudeBot,
+  PerplexityBot, Google-Extended, OAI-SearchBot, Applebot-Extended). Il sito e
+  open source e non contiene dati personali: essere citati e l'obiettivo.
+- **La sezione Metodologia cita fonti primarie** con margine di errore dichiarato
+  e un elenco di cosa lo strumento non fa. Dal Core Update di marzo 2026
+  l'esperienza dimostrata pesa piu della pagina generalista perfetta.
+- **IndexNow**: la chiave sta nel file `<chiave>.txt` alla root, che deve restare
+  raggiungibile. Dopo un deploy che cambia il contenuto:
+
+  ```
+  KEY=$(ls *.txt | grep -Ev 'llms|robots' | sed 's/.txt$//')
+  curl -X POST https://api.indexnow.org/IndexNow -H 'Content-Type: application/json' \
+    -d "{\"host\":\"programma-mesocicli.vercel.app\",\"key\":\"$KEY\",\"urlList\":[\"https://programma-mesocicli.vercel.app/\"]}"
+  ```
+
+  Notifica Bing, DuckDuckGo, Yandex e Perplexity. **Non Google**: per Google
+  contano sitemap, Search Console e i link interni.
+- `sitemap.xml` e `llms.txt` vanno aggiornati quando cambia il contenuto: `llms.txt`
+  contiene la tabella dei volumi e le fonti in forma leggibile da un LLM.
+
 ## Deploy
 
 Il sito e statico: la build su Vercel non fa nulla, carica la root.

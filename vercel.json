@@ -52,6 +52,19 @@
           "value": "text/plain; charset=utf-8"
         }
       ]
+    },
+    {
+      "source": "/google49232cd9c560d394.html",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }

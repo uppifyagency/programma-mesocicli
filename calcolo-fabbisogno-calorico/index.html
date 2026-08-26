@@ -34,6 +34,30 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "@id": "https://programma-mesocicli.vercel.app/#autore",
+      "name": "Vlad Vrinceanu",
+      "url": "https://programma-mesocicli.vercel.app/#autore",
+      "jobTitle": "AI manager",
+      "sameAs": [
+        "https://www.linkedin.com/in/vladvrinceanu/",
+        "https://github.com/uppifyagency"
+      ],
+      "description": "Autore e sviluppatore di Programma Mesocicli, strumento open source per il calcolo delle calorie della definizione e la programmazione dell'allenamento. Non e un professionista sanitario."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://programma-mesocicli.vercel.app/#organization",
+      "name": "Programma Mesocicli",
+      "url": "https://programma-mesocicli.vercel.app/",
+      "founder": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
+      },
+      "sameAs": [
+        "https://github.com/uppifyagency/programma-mesocicli"
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/#webpage",
       "url": "https://programma-mesocicli.vercel.app/calcolo-fabbisogno-calorico/",
@@ -42,6 +66,12 @@
       "inLanguage": "it-IT",
       "isPartOf": {
         "@id": "https://programma-mesocicli.vercel.app/#website"
+      },
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
+      },
+      "publisher": {
+        "@id": "https://programma-mesocicli.vercel.app/#organization"
       },
       "datePublished": "2026-08-26",
       "dateModified": "2026-08-26",
@@ -127,6 +157,9 @@
       "codeRepository": "https://github.com/uppifyagency/programma-mesocicli",
       "publisher": {
         "@id": "https://programma-mesocicli.vercel.app/#organization"
+      },
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
       },
       "description": "Calcola il fabbisogno calorico giornaliero e il metabolismo basale da età, peso, altezza, sesso e attività, con la formula Mifflin-St Jeor. Gratis, senza registrazione, il risultato resta nel tuo browser."
     },
@@ -455,6 +488,13 @@ footer.site a{color:var(--ink2)}
   </section>
 
 
+  <section aria-labelledby="h-firma">
+    <div class="eyebrow">Chi l'ha fatto</div>
+    <h2 id="h-firma">Chi c'è dietro questo calcolo?</h2>
+    <p class="lead-a">Vlad Vrinceanu, AI manager. Non sono un medico né un nutrizionista: per questo ogni formula usata qui è dichiarata con la sua fonte primaria e il suo margine di errore, invece di chiederti di fidarti.</p>
+    <p style="color:var(--ink2); max-width:70ch; margin-top:12px">Il codice è pubblico con licenza MIT, quindi le formule si possono leggere e verificare riga per riga. Se hai una patologia, sei in gravidanza o hai avuto disturbi del comportamento alimentare, la persona da sentire è un professionista sanitario, non un calcolatore. <a href="../#autore">Di più sull'autore</a> · <a href="https://www.linkedin.com/in/vladvrinceanu/" rel="noopener author">LinkedIn</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">Codice sorgente</a></p>
+  </section>
+
   <section id="faq" class="faq" aria-labelledby="h-faq">
     <div class="eyebrow">FAQ</div>
     <h2 id="h-faq">Domande frequenti</h2>
@@ -511,7 +551,7 @@ footer.site a{color:var(--ink2)}
 </main>
 <footer class="site">
   <div class="wrap footgrid">
-    <div>Programma Mesocicli · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
+    <div>Programma Mesocicli, di <a href="https://www.linkedin.com/in/vladvrinceanu/" rel="noopener author">Vlad Vrinceanu</a> · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
     <div>Non è una prescrizione medica: prima di iniziare un programma di allenamento o una dieta, parlane con un professionista.</div>
   </div>
 </footer>

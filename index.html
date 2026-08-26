@@ -45,7 +45,28 @@
         "url": "https://programma-mesocicli.vercel.app/assets/og.png",
         "width": 1200,
         "height": 630
+      },
+      "founder": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
       }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://programma-mesocicli.vercel.app/#autore",
+      "name": "Vlad Vrinceanu",
+      "url": "https://programma-mesocicli.vercel.app/#autore",
+      "jobTitle": "AI manager",
+      "sameAs": [
+        "https://www.linkedin.com/in/vladvrinceanu/",
+        "https://github.com/uppifyagency"
+      ],
+      "knowsAbout": [
+        "Programmazione dell'allenamento con i pesi",
+        "Deficit calorico",
+        "Composizione corporea",
+        "Sviluppo software"
+      ],
+      "description": "Autore e sviluppatore di Programma Mesocicli, strumento open source per il calcolo delle calorie della definizione e la programmazione dell'allenamento. Non è un professionista sanitario."
     },
     {
       "@type": "WebSite",
@@ -183,6 +204,12 @@
       },
       "breadcrumb": {
         "@id": "https://programma-mesocicli.vercel.app/#breadcrumb"
+      },
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
+      },
+      "publisher": {
+        "@id": "https://programma-mesocicli.vercel.app/#organization"
       }
     },
     {
@@ -233,7 +260,10 @@
         "Volumi settimanali per distretto confrontati con MEV, MAV e MRV",
         "Log di allenamento con double progression su carico, ripetizioni e RPE"
       ],
-      "description": "Genera il mesociclo di specializzazione in definizione: calorie e macro dai tuoi dati, cinque sedute a settimana con serie, ripetizioni e recuperi, volumi confrontati con MEV, MAV e MRV."
+      "description": "Genera il mesociclo di specializzazione in definizione: calorie e macro dai tuoi dati, cinque sedute a settimana con serie, ripetizioni e recuperi, volumi confrontati con MEV, MAV e MRV.",
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
+      }
     },
     {
       "@type": "HowTo",
@@ -589,6 +619,7 @@ footer.site a{color:var(--ink2)}
       <a href="#open-source">Open source</a>
       <a href="#strumenti">Strumenti</a>
       <a href="#metodologia">Metodologia</a>
+      <a href="#autore">Autore</a>
       <a href="#faq">FAQ</a>
       <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a>
     </nav>
@@ -891,6 +922,24 @@ footer.site a{color:var(--ink2)}
     </div>
   </section>
 
+
+  <section id="autore" aria-labelledby="h-autore">
+    <div class="eyebrow">Chi l'ha fatto</div>
+    <h2 id="h-autore">Chi c'è dietro questo strumento?</h2>
+    <p class="lead-a">Vlad Vrinceanu, AI manager. Ho costruito Programma Mesocicli per la mia programmazione e l'ho reso pubblico e open source perché possa servire ad altri.</p>
+    <div class="split" style="margin-top:22px">
+      <div>
+        <h3>Perché esiste</h3>
+        <p style="color:var(--ink2)">Volevo un numero solo e coerente: le calorie, i macro e la scheda calcolati con la stessa aritmetica, invece di tre calcolatori diversi che danno tre risposte diverse. Quando non l'ho trovato l'ho scritto, e ho tenuto tutto in una pagina statica senza account e senza backend perché quel tipo di strumento non ha bisogno dei miei dati per funzionare. Il codice è pubblico su <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a> con licenza MIT: le formule si possono leggere e verificare riga per riga.</p>
+      </div>
+      <div>
+        <h3>Che cosa non sono</h3>
+        <p style="color:var(--ink2)">Non sono un medico, un nutrizionista né un personal trainer certificato, e questo strumento non è un servizio di coaching. Per questo ogni formula è dichiarata con la sua fonte primaria nella <a href="#metodologia">sezione metodologia</a>, con il margine di errore accanto: non ti sto chiedendo di fidarti di me, ti sto mostrando da dove viene ogni numero. Se hai una patologia, sei in gravidanza o hai avuto disturbi del comportamento alimentare, la persona da sentire è un professionista sanitario, non un calcolatore.</p>
+        <p style="margin-top:14px"><a class="btn ghost" href="https://www.linkedin.com/in/vladvrinceanu/" rel="noopener author">Vlad Vrinceanu su LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+
   <section id="faq" class="faq" aria-labelledby="h-faq">
     <div class="eyebrow">FAQ</div>
     <h2 id="h-faq">Domande frequenti</h2>
@@ -977,7 +1026,7 @@ footer.site a{color:var(--ink2)}
 
 <footer class="site">
   <div class="wrap footgrid">
-    <div>Programma Mesocicli · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
+    <div>Programma Mesocicli, di <a href="https://www.linkedin.com/in/vladvrinceanu/" rel="noopener author">Vlad Vrinceanu</a> · <a href="https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE" rel="noopener">licenza MIT</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a></div>
     <div>Non è una prescrizione medica: prima di iniziare un programma di allenamento o una dieta, parlane con un professionista.</div>
   </div>
 </footer>

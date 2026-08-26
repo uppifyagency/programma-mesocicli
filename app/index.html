@@ -152,6 +152,18 @@ ul.tight li{margin-top:4px;}
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Person",
+      "@id": "https://programma-mesocicli.vercel.app/#autore",
+      "name": "Vlad Vrinceanu",
+      "url": "https://programma-mesocicli.vercel.app/#autore",
+      "jobTitle": "AI manager",
+      "sameAs": [
+        "https://www.linkedin.com/in/vladvrinceanu/",
+        "https://github.com/uppifyagency"
+      ],
+      "description": "Autore e sviluppatore di Programma Mesocicli. Non è un professionista sanitario."
+    },
+    {
       "@type": "WebPage",
       "@id": "https://programma-mesocicli.vercel.app/app/#webpage",
       "url": "https://programma-mesocicli.vercel.app/app/",
@@ -166,6 +178,9 @@ ul.tight li{margin-top:4px;}
       },
       "breadcrumb": {
         "@id": "https://programma-mesocicli.vercel.app/app/#breadcrumb"
+      },
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
       }
     },
     {
@@ -214,7 +229,10 @@ ul.tight li{margin-top:4px;}
         "name": "Programma Mesocicli",
         "url": "https://programma-mesocicli.vercel.app/"
       },
-      "description": "Genera un mesociclo di specializzazione di 8, 12 o 16 settimane: due distretti target, cinque sedute a settimana con serie, ripetizioni, ripetizioni efficaci e recuperi, volumi confrontati con MEV, MAV e MRV e piano calorico dai tuoi dati."
+      "description": "Genera un mesociclo di specializzazione di 8, 12 o 16 settimane: due distretti target, cinque sedute a settimana con serie, ripetizioni, ripetizioni efficaci e recuperi, volumi confrontati con MEV, MAV e MRV e piano calorico dai tuoi dati.",
+      "author": {
+        "@id": "https://programma-mesocicli.vercel.app/#autore"
+      }
     }
   ]
 }
@@ -316,7 +334,7 @@ ul.tight li{margin-top:4px;}
   <p class="note">Double progression sul log: si registrano carico, ripetizioni totali e RPE di ogni esercizio, e la settimana dopo si batte il log. Prima salgono le ripetizioni dentro il range, poi sale il carico. Con lo scarico programmato attivo, le ultime settimane vanno a buffer sulle ripetizioni invece che a RPE 10.</p>
 </section>
 
-<div class="footer">Le tacche MEV, MAV e MRV nel tally sono volumi di riferimento indicativi per distretto. I parametri di ogni riga (reps, ER, rest, tecnica) seguono il ruolo dell'esercizio scelto. Non è una prescrizione medica: i carichi li decide il tuo log. · <a href="../" style="color:inherit">Programma Mesocicli · il metodo</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" style="color:inherit" rel="noopener">Codice sorgente</a></div>
+<div class="footer">Le tacche MEV, MAV e MRV nel tally sono volumi di riferimento indicativi per distretto. I parametri di ogni riga (reps, ER, rest, tecnica) seguono il ruolo dell'esercizio scelto. Non è una prescrizione medica: i carichi li decide il tuo log. · <a href="../" style="color:inherit">Programma Mesocicli · il metodo</a> · <a href="../#autore" style="color:inherit">Vlad Vrinceanu</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" style="color:inherit" rel="noopener">Codice sorgente</a></div>
 </div>
 
 <script>

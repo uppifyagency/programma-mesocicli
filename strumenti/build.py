@@ -55,9 +55,19 @@ def testo(x):
 def schema(p):
     url = f'{DOMINIO}/{p["slug"]}/'
     g = [
+        {"@type": "Person", "@id": f"{DOMINIO}/#autore", "name": "Vlad Vrinceanu",
+         "url": f"{DOMINIO}/#autore", "jobTitle": "AI manager",
+         "sameAs": ["https://www.linkedin.com/in/vladvrinceanu/",
+                    "https://github.com/uppifyagency"],
+         "description": "Autore e sviluppatore di Programma Mesocicli, strumento open source per il calcolo delle calorie della definizione e la programmazione dell'allenamento. Non e un professionista sanitario."},
+        {"@type": "Organization", "@id": f"{DOMINIO}/#organization",
+         "name": "Programma Mesocicli", "url": f"{DOMINIO}/",
+         "founder": {"@id": f"{DOMINIO}/#autore"}, "sameAs": [GH]},
         {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": p['title'],
          "description": p['description'], "inLanguage": "it-IT",
          "isPartOf": {"@id": f"{DOMINIO}/#website"},
+         "author": {"@id": f"{DOMINIO}/#autore"},
+         "publisher": {"@id": f"{DOMINIO}/#organization"},
          "datePublished": OGGI, "dateModified": OGGI,
          "breadcrumb": {"@id": url + "#breadcrumb"},
          "about": [{"@type": "Thing", "name": n} for n in p['entita']],
@@ -75,6 +85,7 @@ def schema(p):
                     "availability": "https://schema.org/InStock"},
          "license": f"{GH}/blob/main/LICENSE", "codeRepository": GH,
          "publisher": {"@id": f"{DOMINIO}/#organization"},
+         "author": {"@id": f"{DOMINIO}/#autore"},
          "description": p['description']},
         {"@type": "FAQPage", "@id": url + "#faq", "inLanguage": "it-IT",
          "isPartOf": {"@id": url + "#webpage"},
@@ -149,6 +160,13 @@ TEMPLATE = '''<!doctype html>
 
 {corpo}
 
+  <section aria-labelledby="h-firma">
+    <div class="eyebrow">Chi l'ha fatto</div>
+    <h2 id="h-firma">Chi c'è dietro questo calcolo?</h2>
+    <p class="lead-a">Vlad Vrinceanu, AI manager. Non sono un medico né un nutrizionista: per questo ogni formula usata qui è dichiarata con la sua fonte primaria e il suo margine di errore, invece di chiederti di fidarti.</p>
+    <p style="color:var(--ink2); max-width:70ch; margin-top:12px">Il codice è pubblico con licenza MIT, quindi le formule si possono leggere e verificare riga per riga. Se hai una patologia, sei in gravidanza o hai avuto disturbi del comportamento alimentare, la persona da sentire è un professionista sanitario, non un calcolatore. <a href="../#autore">Di più sull'autore</a> · <a href="https://www.linkedin.com/in/vladvrinceanu/" rel="noopener author">LinkedIn</a> · <a href="{gh}" rel="noopener">Codice sorgente</a></p>
+  </section>
+
   <section id="faq" class="faq" aria-labelledby="h-faq">
     <div class="eyebrow">FAQ</div>
     <h2 id="h-faq">Domande frequenti</h2>
@@ -203,7 +221,7 @@ def main():
             kicker=p['kicker'], h1=p['h1'], lead=p['lead'], cta=p['cta'],
             nome_tool=p['nome_tool'], calcolatore=p['calcolatore'],
             corpo=p['corpo'], faq=faq_html(p['faq']),
-            correlate=correlate_html(p['slug']), js=CALCOLATORE_JS)
+            correlate=correlate_html(p['slug']), js=CALCOLATORE_JS, gh=GH)
         d = os.path.join(RADICE, p['slug'])
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)

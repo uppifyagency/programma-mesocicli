@@ -37,8 +37,13 @@ I dati (configurazione, dati corporei, scelte esercizio) vivono solo nel `localS
 ## Struttura
 
 ```
-index.html        landing page
+index.html        landing page (hub)
 app/index.html    l'app, file unico (HTML + CSS + JS vanilla)
+strumenti/        sorgenti delle pagine strumento (build.py + contenuti.py)
+calcolo-fabbisogno-calorico/  GENERATA
+deficit-calorico/             GENERATA
+calcolo-macronutrienti/       GENERATA
+scheda-definizione/           GENERATA
 assets/           favicon e immagine social
 robots.txt, sitemap.xml, llms.txt
 vercel.json       header e cache per il deploy su Vercel
@@ -83,6 +88,36 @@ vanno rotte per sbaglio:
   contano sitemap, Search Console e i link interni.
 - `sitemap.xml` e `llms.txt` vanno aggiornati quando cambia il contenuto: `llms.txt`
   contiene la tabella dei volumi e le fonti in forma leggibile da un LLM.
+
+## Le pagine strumento (generate)
+
+Le quattro cartelle `calcolo-fabbisogno-calorico/`, `deficit-calorico/`,
+`calcolo-macronutrienti/` e `scheda-definizione/` sono **generate**. Non
+modificarle a mano: si cambia `strumenti/contenuti.py` e si rilancia
+
+```
+python3 strumenti/build.py
+```
+
+- Il builder riusa **CSS, header e footer della landing**: se cambia lo stile di
+  `index.html`, basta rigenerare e le pagine seguono invece di divergere.
+- L'aritmetica del calcolo sta in un punto solo (`CALCOLATORE_JS` in
+  `contenuti.py`) ed e la stessa della landing e del generatore. Se cambi una
+  formula, cambiala li: numeri diversi fra due pagine dello stesso sito sono un
+  problema di fiducia prima che di SEO. Quello che cambia per pagina e solo
+  **quali righe** vengono mostrate (`data-vista`).
+- Ogni pagina copre un **intent distinto**. Non aggiungere una pagina su una
+  keyword che una pagina esistente gia serve: si canniballizzano. E il motivo
+  per cui non esiste `/calcolo-tdee/` nonostante 2.900 ricerche al mese — in
+  italiano e la stessa query di "calcolo fabbisogno calorico", e nella SERP
+  `projectinvictus.it/calcolo-calorie/` ranka su entrambe con la stessa URL.
+  Prima di creare una pagina, guarda se le due SERP si sovrappongono.
+- Le domande delle FAQ vengono dai **People Also Ask reali** (DataForSEO,
+  `serp/google/organic/live/advanced`, location 2380). Non inventarle: sono
+  gratis e sono le domande che Google sta gia mostrando.
+- Aggiungendo una pagina vanno aggiornati anche `sitemap.xml`, `llms.txt` e la
+  sezione Strumenti della landing, altrimenti la pagina resta senza percorso
+  interno.
 
 ## Deploy
 

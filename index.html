@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programma Mesocicli · programma di cut con calorie e scheda dai tuoi dati</title>
-<meta name="description" content="Inserisci eta, peso, altezza e attivita: calcoli le calorie del cut e ottieni il mesociclo completo, 5 sedute a settimana con esercizi intercambiabili, volumi e macro. Gratis, open source, senza account.">
+<title>Programma di cut: calorie, macro e scheda in 5 sedute | Programma Mesocicli</title>
+<meta name="description" content="Calcola le calorie della definizione da età, peso, altezza e attività, poi genera il mesociclo: 8-16 settimane, 5 sedute, due distretti target, volumi contro MEV/MAV/MRV. Gratis, senza account.">
 <link rel="canonical" href="https://programma-mesocicli.vercel.app/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="author" content="Programma Mesocicli">
+<link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/">
+<link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programma Mesocicli">
-<meta property="og:title" content="Programma Mesocicli · il tuo cut, calcolato e programmato">
-<meta property="og:description" content="Eta, peso, altezza, attivita: calorie del cut, macro e mesociclo di specializzazione in cinque sedute. Open source, senza account.">
+<meta property="og:title" content="Programma di cut: calorie, macro e scheda in 5 sedute">
+<meta property="og:description" content="Età, peso, altezza, attività: calorie della definizione, macro e mesociclo di specializzazione in cinque sedute. Open source, senza account.">
 <meta property="og:url" content="https://programma-mesocicli.vercel.app/">
 <meta property="og:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -19,61 +23,380 @@
 <meta property="og:image:alt" content="Programma Mesocicli: calorie del cut dai tuoi dati, due distretti target, cinque sedute">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Programma Mesocicli">
-<meta name="twitter:description" content="Calorie del cut dai tuoi dati piu il mesociclo di specializzazione: 5 sedute, esercizi intercambiabili, volumi e macro.">
+<meta name="twitter:title" content="Programma di cut: calorie, macro e scheda in 5 sedute">
+<meta name="twitter:description" content="Calorie della definizione dai tuoi dati più il mesociclo di specializzazione: 5 sedute, esercizi intercambiabili, volumi e macro.">
 <meta name="twitter:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Programma Mesocicli",
-  "url": "https://programma-mesocicli.vercel.app/",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Web",
-  "inLanguage": "it",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-  "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
-  "featureList": [
-    "Calcolo di metabolismo basale e dispendio energetico da eta, peso, altezza, sesso e attivita",
-    "Calorie del cut con deficit calibrato e ripartizione tra feriali e weekend",
-    "Macronutrienti in grammi e in g/kg",
-    "Mesociclo di 8, 12 o 16 settimane con due distretti target",
-    "Cinque sedute a settimana con esercizi alternativi per ogni ruolo",
-    "Volumi settimanali per distretto con riferimenti MEV, MAV e MRV"
-  ],
-  "description": "Programma di cut: dai tuoi dati calcola le calorie e i macro della definizione e genera il mesociclo di specializzazione, cinque sedute a settimana con esercizi intercambiabili e volumi di riferimento."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Come calcola le calorie del cut?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Dal metabolismo basale con la formula Mifflin-St Jeor su eta, peso, altezza e sesso, moltiplicato per il fattore di attivita quotidiana. Dal dispendio totale sottrae circa 625 kcal al giorno, che corrisponde a una perdita attesa intorno a 0,55 kg a settimana. La media settimanale resta quella prescritta: i giorni feriali stanno piu bassi e il weekend piu alto."}},
-    {"@type": "Question", "name": "Si puo perdere grasso e allenare l'ipertrofia insieme?",
-     "acceptedAnswer": {"@type": "Answer", "text": "In deficit calorico la crescita muscolare rallenta o si ferma, quindi il volume alto viene concentrato su due soli distretti mentre gli altri restano al minimo che mantiene i guadagni. In un cut l'obiettivo realistico e conservare la massa magra, con margini di crescita reali solo per chi si allena da poco o riparte dopo una pausa."}},
-    {"@type": "Question", "name": "Programma Mesocicli è gratis?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è su GitHub."}},
-    {"@type": "Question", "name": "Che cos'è un mesociclo di specializzazione?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Un blocco di 8-16 settimane in cui il volume di allenamento si concentra su due distretti muscolari scelti (i target), mentre tutti gli altri scendono a un volume di mantenimento."}},
-    {"@type": "Question", "name": "Dove finiscono i miei dati?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Restano nel tuo browser (localStorage). L'app non ha backend, non invia nulla a nessun server e funziona anche offline dopo il primo caricamento."}},
-    {"@type": "Question", "name": "Come funziona la progressione?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Double progression sul log: registri carico, ripetizioni totali e RPE di ogni esercizio; la settimana dopo cerchi di battere il log, aumentando le ripetizioni a parità di carico e poi il carico quando superi il range."}},
-    {"@type": "Question", "name": "Posso cambiare gli esercizi proposti?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). I parametri si adattano al ruolo dell'esercizio scelto."}},
-    {"@type": "Question", "name": "Serve installare qualcosa?",
-     "acceptedAnswer": {"@type": "Answer", "text": "No. È una pagina web statica: si apre nel browser, anche da file locale. Puoi clonare il repository e aprire app/index.html senza build né dipendenze."}}
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://programma-mesocicli.vercel.app/#organization",
+      "name": "Programma Mesocicli",
+      "url": "https://programma-mesocicli.vercel.app/",
+      "sameAs": [
+        "https://github.com/uppifyagency/programma-mesocicli"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://programma-mesocicli.vercel.app/assets/og.png",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://programma-mesocicli.vercel.app/#website",
+      "url": "https://programma-mesocicli.vercel.app/",
+      "name": "Programma Mesocicli",
+      "inLanguage": "it-IT",
+      "publisher": {
+        "@id": "https://programma-mesocicli.vercel.app/#organization"
+      },
+      "description": "Calcolatore delle calorie della definizione e generatore di mesocicli di specializzazione. Open source, senza account."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://programma-mesocicli.vercel.app/#webpage",
+      "url": "https://programma-mesocicli.vercel.app/",
+      "name": "Programma di cut: calorie, macro e scheda in 5 sedute",
+      "isPartOf": {
+        "@id": "https://programma-mesocicli.vercel.app/#website"
+      },
+      "inLanguage": "it-IT",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-08-26",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://programma-mesocicli.vercel.app/assets/og.png"
+      },
+      "mainEntity": {
+        "@id": "https://programma-mesocicli.vercel.app/#app"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Definizione muscolare",
+          "sameAs": "https://it.wikipedia.org/wiki/Culturismo"
+        },
+        {
+          "@type": "Thing",
+          "name": "Deficit calorico",
+          "sameAs": "https://it.wikipedia.org/wiki/Metabolismo_basale"
+        },
+        {
+          "@type": "Thing",
+          "name": "Periodizzazione dell'allenamento",
+          "sameAs": "https://it.wikipedia.org/wiki/Allenamento_con_i_pesi"
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Equazione di Mifflin-St Jeor"
+        },
+        {
+          "@type": "Thing",
+          "name": "Volume minimo efficace (MEV)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Volume adattativo massimo (MAV)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Volume massimo recuperabile (MRV)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Ripetizioni efficaci"
+        },
+        {
+          "@type": "Thing",
+          "name": "NEAT"
+        }
+      ],
+      "citation": [
+        {
+          "@type": "ScholarlyArticle",
+          "name": "A new predictive equation for resting energy expenditure in healthy individuals",
+          "datePublished": "1990",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "American Journal of Clinical Nutrition"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Dose-response relationship between weekly resistance training volume and increases in muscle mass",
+          "datePublished": "2017",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "Journal of Sports Sciences"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength",
+          "datePublished": "2018",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "British Journal of Sports Medicine"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Effect of two different weight-loss rates on body composition and strength and power-related performance in elite athletes",
+          "datePublished": "2011",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "International Journal of Sport Nutrition and Exercise Metabolism"
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".lead-a",
+          "#h-metodo",
+          "#h-nutrizione"
+        ]
+      },
+      "breadcrumb": {
+        "@id": "https://programma-mesocicli.vercel.app/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://programma-mesocicli.vercel.app/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Programma Mesocicli",
+          "item": "https://programma-mesocicli.vercel.app/"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
+      "@id": "https://programma-mesocicli.vercel.app/#app",
+      "name": "Programma Mesocicli",
+      "url": "https://programma-mesocicli.vercel.app/app/",
+      "installUrl": "https://programma-mesocicli.vercel.app/app/",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Fitness",
+      "operatingSystem": "Qualsiasi browser web",
+      "browserRequirements": "Richiede JavaScript",
+      "inLanguage": "it-IT",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
+      "codeRepository": "https://github.com/uppifyagency/programma-mesocicli",
+      "publisher": {
+        "@id": "https://programma-mesocicli.vercel.app/#organization"
+      },
+      "dateModified": "2026-08-26",
+      "featureList": [
+        "Calcolo di metabolismo basale e dispendio energetico da età, peso, altezza, sesso e attività quotidiana",
+        "Calorie della definizione con deficit calibrato e ripartizione tra feriali e weekend",
+        "Macronutrienti in grammi e in g/kg",
+        "Mesociclo di 8, 12 o 16 settimane con due distretti target",
+        "Cinque sedute a settimana con esercizi alternativi per ogni ruolo",
+        "Volumi settimanali per distretto confrontati con MEV, MAV e MRV",
+        "Log di allenamento con double progression su carico, ripetizioni e RPE"
+      ],
+      "description": "Genera il mesociclo di specializzazione in definizione: calorie e macro dai tuoi dati, cinque sedute a settimana con serie, ripetizioni e recuperi, volumi confrontati con MEV, MAV e MRV."
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://programma-mesocicli.vercel.app/#howto",
+      "name": "Come costruire un mesociclo di specializzazione in definizione",
+      "description": "Dai dati corporei alla scheda settimanale in tre passi.",
+      "inLanguage": "it-IT",
+      "totalTime": "PT5M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Programma Mesocicli",
+          "url": "https://programma-mesocicli.vercel.app/app/"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Calcola le calorie della definizione",
+          "text": "Inserisci sesso, età, peso, altezza e attività quotidiana. L'app calcola il metabolismo basale con Mifflin-St Jeor, lo moltiplica per il fattore di attività e sottrae circa 625 kcal al giorno, senza mai scendere sotto il basale.",
+          "url": "https://programma-mesocicli.vercel.app/#calcola"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Scegli i due distretti target",
+          "text": "Scegli due distretti fra i dieci disponibili e la durata del blocco (8, 12 o 16 settimane). Il volume dei due target sale verso il massimo produttivo, tutti gli altri restano al volume che mantiene.",
+          "url": "https://programma-mesocicli.vercel.app/app/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Adatta gli esercizi e batti il log",
+          "text": "Ogni riga della scheda è un menu di alternative per lo stesso ruolo: cambiando esercizio i parametri seguono il ruolo. Poi si registrano carico, ripetizioni totali e RPE, e la settimana dopo si batte il log: prima più ripetizioni, poi più carico.",
+          "url": "https://programma-mesocicli.vercel.app/app/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://programma-mesocicli.vercel.app/#faq",
+      "inLanguage": "it-IT",
+      "isPartOf": {
+        "@id": "https://programma-mesocicli.vercel.app/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Come vengono calcolate le calorie del cut?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il metabolismo basale con la formula Mifflin-St Jeor su età, peso, altezza e sesso, moltiplicato per il fattore di attività quotidiana che scegli. Dal dispendio totale l'app sottrae circa 625 kcal al giorno, cioè una perdita attesa intorno a 0,55 kg a settimana. I giorni feriali stanno più bassi e il weekend più alto, ma la media della settimana resta quella prescritta. Ogni formula è una stima: dopo due settimane conta il peso sulla bilancia, non il calcolo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Si può perdere grasso e mettere muscolo insieme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In deficit calorico la crescita rallenta o si ferma, e per chi si allena da anni l'obiettivo realistico è conservare la massa magra invece di costruirne. Per questo il volume alto va su due soli distretti e non su tutto il corpo: è lì che vale la pena spendere il recupero che il deficit lascia. Chi si allena da poco, riparte dopo una pausa o ha molto grasso da perdere può ancora guadagnare qualcosa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Programma Mesocicli è gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. È un progetto open source con licenza MIT: l'app è gratuita, senza account, senza pubblicità e senza raccolta dati. Il codice è pubblico su GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che cos'è un mesociclo di specializzazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un blocco di 8-16 settimane in cui il volume di allenamento si concentra su due distretti muscolari scelti (i target), mentre tutti gli altri scendono a un volume di mantenimento. Finito il blocco, si cambiano i target."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dove finiscono i miei dati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Restano nel tuo browser (localStorage). L'app non ha backend e non invia nulla a nessun server: peso, età e scelte di configurazione non lasciano mai il tuo dispositivo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come funziona la progressione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Double progression sul log: registri carico, ripetizioni totali e RPE di ogni esercizio. La settimana dopo cerchi di battere il log: più ripetizioni a parità di carico, e quando sfori il range in alto aumenti il carico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso cambiare gli esercizi proposti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). Reps, ER, recupero e tecnica si adattano al ruolo dell'esercizio che scegli."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che cosa sono MEV, MAV e MRV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sono tre soglie di volume settimanale, misurate in serie allenanti per distretto. Il MEV (volume minimo efficace) è il minimo che mantiene quello che hai già; il MAV (volume adattativo massimo) è la fascia in cui la crescita è più produttiva; l'MRV (volume massimo recuperabile) è il tetto oltre il quale accumuli fatica senza ricavarne stimolo. Non sono numeri universali: variano per distretto, per persona e per quanto stai mangiando. In definizione l'MRV si abbassa, perché il recupero dipende anche dalle calorie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto si può dimagrire a settimana senza perdere muscolo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Intorno allo 0,5-0,8% del peso corporeo a settimana è il ritmo che la maggior parte delle persone regge senza intaccare la massa magra: su 75 kg significa circa 0,4-0,6 kg. Il generatore usa un deficit di circa 625 kcal al giorno, che corrisponde a circa 0,55 kg a settimana. Più veloce di così e i primi segnali sono i carichi che crollano nel log e la fame che diventa ingestibile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanti giorni a settimana bisogna allenarsi in definizione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cinque sedute a settimana è la frequenza su cui è costruito il generatore: permette di allenare i due distretti target due volte ciascuno e di tenere tutti gli altri sopra il volume di mantenimento. Meno sedute non rendono impossibile un cut, ma comprimono il volume in sessioni più lunghe e più difficili da recuperare quando si mangia poco."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto deve durare un mesociclo di specializzazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da 8 a 16 settimane, con gli scarichi dentro. Sotto le 8 settimane il volume accumulato è troppo poco perché la specializzazione si veda; oltre le 16 la fatica si accumula più in fretta di quanto il deficit permetta di smaltirla. Finito il blocco si cambiano i due target, così ogni distretto ha il suo turno nell'arco dell'anno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meglio cardio o passi per dimagrire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I passi, nella maggior parte dei casi. Il NEAT (l'attività non sportiva della giornata) muove più calorie del cardio strutturato e costa molto meno recupero, che in deficit è la risorsa scarsa. Il piano di riferimento è 15.000 passi al giorno. Il cardio non è vietato: semplicemente compete con l'allenamento con i pesi per lo stesso recupero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il programma va bene per le donne?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Il calcolo di metabolismo basale e dispendio usa la formula Mifflin-St Jeor con il coefficiente per sesso, quindi calorie e macro escono tarati sui tuoi dati. La struttura dell'allenamento non cambia: cambiano i distretti che sceglierai come target, e glutei e femorali sono fra i dieci disponibili."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Serve installare qualcosa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. È una pagina statica: si apre nel browser da questo sito o da file locale. Per lo sviluppo basta clonare il repository e aprire app/index.html: niente build, niente dipendenze."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
+<link rel="preload" href="assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/barlow-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/barlow-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/barlow-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/barlow-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/barlow-condensed-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/barlow-condensed-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(assets/fonts/barlow-condensed-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/ibm-plex-mono-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/ibm-plex-mono-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/ibm-plex-mono-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face{font-family:"Barlow Condensed Fallback";src:local("Arial Narrow");size-adjust:88%;}
 :root{
   --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#5D6873;
@@ -161,6 +484,8 @@ ul.checks li{padding:7px 0 7px 26px; position:relative; color:var(--ink2);}
 ul.checks li::before{content:""; position:absolute; left:2px; top:14px; width:12px; height:12px; background:var(--accent);}
 ul.checks li b{color:var(--ink)}
 .oss{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); padding:26px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.lead-a{color:var(--ink2); font-size:1.02rem; max-width:62ch; margin:10px 0 0;}
 .faq details{background:var(--surface); border:1px solid var(--line); margin-top:10px;}
 .faq summary{cursor:pointer; padding:14px 18px; font-family:"Barlow Condensed","Barlow Condensed Fallback",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1rem;}
 .faq details[open] summary{border-bottom:1px solid var(--line);}
@@ -204,6 +529,7 @@ footer.site a{color:var(--ink2)}
       <a href="#come-funziona">Come funziona</a>
       <a href="#nutrizione">Nutrizione</a>
       <a href="#open-source">Open source</a>
+      <a href="#metodologia">Metodologia</a>
       <a href="#faq">FAQ</a>
       <a href="https://github.com/uppifyagency/programma-mesocicli" rel="noopener">GitHub</a>
     </nav>
@@ -216,7 +542,7 @@ footer.site a{color:var(--ink2)}
   <div class="hero">
     <div>
       <div class="kicker">Programma di cut · open source</div>
-      <h1>Il tuo cut, calcolato e programmato:<br>calorie dai tuoi dati, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
+      <h1>Programma di cut:<br>calorie dai tuoi dati, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
       <p class="lead">Metti età, peso, altezza e quanto ti muovi in una giornata: da lì escono le calorie della definizione, i macro in grammi e il mesociclo completo di 8, 12 o 16 settimane. Due distretti tengono il volume alto, il resto del corpo resta al minimo che mantiene, e ogni seduta arriva già scritta con serie, ripetizioni e recuperi.</p>
       <div class="cta">
         <a class="btn" href="#calcola">Calcola il tuo cut</a>
@@ -262,21 +588,22 @@ footer.site a{color:var(--ink2)}
 
   <section id="metodo" aria-labelledby="h-metodo">
     <div class="eyebrow">Il metodo</div>
-    <h2 id="h-metodo">Specializzazione, ruoli, log</h2>
+    <h2 id="h-metodo">Come funziona un mesociclo di specializzazione in definizione?</h2>
+    <p class="lead-a">Due distretti muscolari tengono il volume alto per 8-16 settimane, tutti gli altri scendono al volume che mantiene i guadagni. In deficit calorico il recupero non basta per spingere su tutto il corpo.</p>
     <div class="cards">
       <div class="card">
         <div class="num">01</div>
-        <h3>Due target, il resto in mantenimento</h3>
+        <h3>Perché solo due distretti target?</h3>
         <p>In deficit calorico il recupero è la risorsa scarsa, quindi non si spinge su tutto. Il generatore alza il volume dei due distretti scelti verso il loro massimo produttivo e tiene gli altri al minimo che ne conserva i guadagni. Ogni target compare due volte a settimana.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
-        <h3>Ogni esercizio ha un ruolo</h3>
+        <h3>Che ruolo ha ogni esercizio nella seduta?</h3>
         <p>La seduta si apre con un esercizio madre pesante, prosegue con i meccanici e chiude con gli isolamenti in contrazione di picco. Ogni ruolo porta con sé serie, range di ripetizioni, recupero e ripetizioni efficaci (ER).</p>
       </div>
       <div class="card">
         <div class="num">03</div>
-        <h3>La progressione è il log</h3>
+        <h3>Come si progredisce settimana dopo settimana?</h3>
         <p>Ogni serie si chiude vicino al cedimento e finisce nel log: carico, ripetizioni totali, RPE. La settimana dopo l'obiettivo è uno: battere il log. Prima salgono le ripetizioni, poi sale il carico.</p>
       </div>
     </div>
@@ -296,7 +623,7 @@ footer.site a{color:var(--ink2)}
 
   <section id="come-funziona" aria-labelledby="h-come">
     <div class="eyebrow">Come funziona</div>
-    <h2 id="h-come">Dalla scelta alla scheda in tre passi</h2>
+    <h2 id="h-come">Come si costruisce la scheda, in tre passi</h2>
     <div class="cards">
       <div class="card">
         <div class="num">Passo 1</div>
@@ -334,29 +661,52 @@ footer.site a{color:var(--ink2)}
     </div>
       </div>
       <div>
-        <h3 style="margin-top:8px">Volumi con le tacche, non a sensazione</h3>
-        <p style="color:var(--ink2)">Per ogni distretto la barra del volume settimanale si confronta con tre riferimenti: il minimo che mantiene (MEV), la zona più produttiva (MAV) e il tetto recuperabile (MRV). I target spingono verso l'alto, i non-target restano dichiaratamente in mantenimento: nessun volume nascosto, nessun distretto dimenticato per sbaglio.</p>
+        <h3 style="margin-top:8px">Quante serie a settimana servono per ogni distretto?</h3>
+        <p style="color:var(--ink2)">Fra il minimo che mantiene e il tetto che riesci a recuperare, e il numero cambia per distretto e per persona. Per ogni distretto la barra del volume settimanale si confronta con tre riferimenti: il minimo che mantiene (MEV), la zona più produttiva (MAV) e il tetto recuperabile (MRV). I target spingono verso l'alto, i non-target restano dichiaratamente in mantenimento: nessun volume nascosto, nessun distretto dimenticato per sbaglio.</p>
       </div>
     </div>
 
+    <figure style="margin:22px 0 0">
+      <figcaption class="eyebrow" style="margin-bottom:8px">Serie a settimana per distretto</figcaption>
+      <table class="params">
+        <caption class="sr-only">Volumi di riferimento settimanali per distretto: MEV, MAV e MRV in serie allenanti a settimana</caption>
+        <thead><tr><th scope="col">Distretto</th><th scope="col">MEV</th><th scope="col">MAV</th><th scope="col">MRV</th></tr></thead>
+        <tbody>
+        <tr><td>Petto</td><td class="mono">8</td><td class="mono">15</td><td class="mono">22</td></tr>
+        <tr><td>Dorso</td><td class="mono">10</td><td class="mono">16</td><td class="mono">25</td></tr>
+        <tr><td>Delt laterali/posteriori</td><td class="mono">6</td><td class="mono">13</td><td class="mono">26</td></tr>
+        <tr><td>Bicipiti</td><td class="mono">6</td><td class="mono">13</td><td class="mono">26</td></tr>
+        <tr><td>Tricipiti</td><td class="mono">6</td><td class="mono">13</td><td class="mono">20</td></tr>
+        <tr><td>Quadricipiti</td><td class="mono">8</td><td class="mono">15</td><td class="mono">20</td></tr>
+        <tr><td>Femorali</td><td class="mono">4</td><td class="mono">10</td><td class="mono">20</td></tr>
+        <tr><td>Glutei</td><td class="mono">0</td><td class="mono">10</td><td class="mono">20</td></tr>
+        <tr><td>Polpacci</td><td class="mono">10</td><td class="mono">22</td><td class="mono">26</td></tr>
+        <tr><td>Addome</td><td class="mono">0</td><td class="mono">25</td><td class="mono">28</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--ink3); font-size:.85rem; margin-top:10px">Serie allenanti a settimana. <b>MEV</b> è il minimo che mantiene, <b>MAV</b> la zona più produttiva, <b>MRV</b> il tetto oltre il quale non recuperi. Sono le stesse tacche che il generatore usa nel tally: riferimenti di partenza, non prescrizioni. Il tuo numero reale si trova alzando il volume finché il log smette di migliorare, poi tornando indietro. In definizione l'MRV si abbassa, perché il recupero dipende dalle calorie.</p>
+    </figure>
+
+
     <div class="split">
       <div>
-        <h3 style="margin-top:8px">Effective reps, non serie a vuoto</h3>
-        <p style="color:var(--ink2)">Ogni esercizio ha un target di ripetizioni efficaci: quelle vicine al cedimento, le uniche che contano davvero. Con serie portate a RPE alto e recuperi calibrati per ruolo, il volume scritto in scheda è volume che allena, e in deficit calorico questo conta il doppio: le serie che non allenano restano solo fatica da recuperare.</p>
+        <h3 style="margin-top:8px">Che cosa sono le ripetizioni efficaci?</h3>
+        <p style="color:var(--ink2)">Sono le ripetizioni vicine al cedimento, le uniche che reclutano le fibre ad alta soglia e producono lo stimolo. Ogni esercizio della scheda ha un target di ripetizioni efficaci (ER). Con serie portate a RPE alto e recuperi calibrati per ruolo, il volume scritto in scheda è volume che allena, e in deficit calorico questo conta il doppio: le serie che non allenano restano solo fatica da recuperare.</p>
       </div>
       <div>
-        <h3 style="margin-top:8px">In deficit il carico va difeso</h3>
-        <p style="color:var(--ink2)">Mangiando meno il recupero si accorcia e i carichi tendono a scendere. Il log serve a vedere quando succede: se i chili tengono settimana dopo settimana, il muscolo c'è ancora e il peso che scende è grasso. Se crollano su tutti gli esercizi insieme, il problema è il deficit o il sonno, non la scheda.</p>
+        <h3 style="margin-top:8px">I carichi calano quando si è in deficit calorico?</h3>
+        <p style="color:var(--ink2)">Tendono a scendere, sì, perché mangiando meno il recupero si accorcia: difenderli è l'obiettivo del blocco. Il log serve a vedere quando succede: se i chili tengono settimana dopo settimana, il muscolo c'è ancora e il peso che scende è grasso. Se crollano su tutti gli esercizi insieme, il problema è il deficit o il sonno, non la scheda.</p>
       </div>
     </div>
   </section>
 
   <section id="nutrizione" aria-labelledby="h-nutrizione">
     <div class="eyebrow">Nutrizione</div>
-    <h2 id="h-nutrizione">Le calorie del cut, dai tuoi numeri</h2>
+    <h2 id="h-nutrizione">Quante calorie servono per la definizione?</h2>
+    <p class="lead-a">Il dispendio totale meno circa 625 kcal al giorno, cioè una perdita attesa intorno a 0,55 kg a settimana. Il target non scende mai sotto il metabolismo basale.</p>
     <div class="split">
       <div>
-        <p style="color:var(--ink2)">Età, peso, altezza, sesso e attività quotidiana bastano: da lì escono metabolismo basale e dispendio totale, il deficit, la ripartizione tra feriali e weekend e i macro in grammi e in g/kg. Sono gli stessi numeri che vedi nel calcolatore in cima alla pagina, con la scheda attaccata.</p>
+        <p style="color:var(--ink2)">Bastano età, peso, altezza, sesso e attività quotidiana: da lì escono metabolismo basale e dispendio totale, il deficit, la ripartizione tra feriali e weekend e i macro in grammi e in g/kg. Sono gli stessi numeri che vedi nel calcolatore in cima alla pagina, con la scheda attaccata.</p>
         <ul class="checks">
           <li><b>Deficit dal tuo TDEE</b>, non una dieta a numeri fissi: circa 625 kcal al giorno, intorno a 0,55 kg a settimana.</li>
           <li><b>Weekend più alto e flessibile</b>: la media settimanale resta quella prescritta, la vita sociale pure.</li>
@@ -381,14 +731,15 @@ footer.site a{color:var(--ink2)}
 
   <section id="open-source" aria-labelledby="h-oss">
     <div class="eyebrow">Open source</div>
-    <h2 id="h-oss">Un file, nessun server, licenza MIT</h2>
+    <h2 id="h-oss">Serve un account, un abbonamento o un'installazione?</h2>
+    <p class="lead-a">No: una pagina HTML statica, licenza MIT, nessun backend. I dati restano nel localStorage del browser.</p>
     <div class="oss" style="margin-top:22px">
       <div class="split" style="margin-top:0">
         <div>
           <p style="color:var(--ink2); margin-top:0">L'app è una singola pagina HTML senza build, senza dipendenze da installare e senza backend. La apri nel browser, anche offline; la cloni e la modifichi come vuoi.</p>
           <ul class="checks">
             <li><b>Privacy per architettura</b>: i dati vivono solo nel localStorage del tuo browser.</li>
-            <li><b>Zero tracker</b>: nessuna analytics, nessun cookie, nessuna richiesta a terzi oltre ai font.</li>
+            <li><b>Zero tracker</b>: nessuna analytics, nessun cookie, nessuna richiesta a terzi. Anche i font sono serviti dal sito.</li>
             <li><b>Licenza MIT</b>: usala, modificala, ridistribuiscila. Anche a scopo commerciale.</li>
           </ul>
         </div>
@@ -398,6 +749,56 @@ footer.site a{color:var(--ink2)}
             <a class="btn" href="app/">Prova subito nel browser</a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="metodologia" aria-labelledby="h-metodologia">
+    <div class="eyebrow">Metodologia</div>
+    <h2 id="h-metodologia">Da dove vengono questi numeri?</h2>
+    <p class="lead-a">Da equazioni e meta-analisi pubbliche, non da stime interne. Qui sotto c'è ogni formula usata dall'app, con la fonte accanto e il suo margine di errore dichiarato.</p>
+
+    <table class="params" style="margin-top:22px">
+      <caption class="sr-only">Formule usate dall'app e relative fonti</caption>
+      <thead><tr><th scope="col">Cosa calcola</th><th scope="col">Come</th><th scope="col">Fonte</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Metabolismo basale</td>
+          <td>Mifflin-St Jeor su peso, altezza, età e sesso</td>
+          <td>Mifflin MD, St Jeor ST et al., <i>American Journal of Clinical Nutrition</i>, 1990;51(2):241-247</td>
+        </tr>
+        <tr>
+          <td>Dispendio totale</td>
+          <td>Basale × fattore di attività (1,2-1,9)</td>
+          <td>Fattori PAL standard, FAO/WHO/UNU 2004</td>
+        </tr>
+        <tr>
+          <td>Ritmo di perdita</td>
+          <td>Circa 0,55 kg a settimana, sotto lo 0,8% del peso</td>
+          <td>Garthe I et al., <i>Int. J. of Sport Nutrition and Exercise Metabolism</i>, 2011;21(2):97-104</td>
+        </tr>
+        <tr>
+          <td>Proteine</td>
+          <td>2 g per kg di peso corporeo</td>
+          <td>Morton RW et al., <i>British Journal of Sports Medicine</i>, 2018;52(6):376-384</td>
+        </tr>
+        <tr>
+          <td>Volume settimanale</td>
+          <td>Serie allenanti per distretto, tacche MEV/MAV/MRV</td>
+          <td>Schoenfeld BJ, Ogborn D, Krieger JW, <i>Journal of Sports Sciences</i>, 2017;35(11):1073-1082</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="split" style="margin-top:26px">
+      <div>
+        <h3>Che margine di errore hanno?</h3>
+        <p style="color:var(--ink2)">Una stima da formula sbaglia di ±10-15% sul singolo individuo, e su alcune persone di più. Per questo l'app dichiara il numero come punto di partenza e non come verdetto: dopo due settimane di pesate il dato reale è la variazione sulla bilancia, e il target va corretto su quella. Un calcolatore che presenta il proprio output come esatto sta nascondendo il suo intervallo di confidenza.</p>
+      </div>
+      <div>
+        <h3>Che cosa il generatore non fa</h3>
+        <p style="color:var(--ink2)">Non stima la percentuale di grasso corporeo, perché servirebbe una misura che l'app non ha. Non promette ricomposizione a chi si allena da anni. Non scende sotto il metabolismo basale: sui soggetti leggeri riduce il deficit e lo scrive in pagina invece di tagliare comunque. E non sostituisce un medico o un nutrizionista, in particolare in presenza di patologie, gravidanza o disturbi del comportamento alimentare.</p>
       </div>
     </div>
   </section>
@@ -432,6 +833,30 @@ footer.site a{color:var(--ink2)}
     <details>
       <summary>Posso cambiare gli esercizi proposti?</summary>
       <div class="a">Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). Reps, ER, recupero e tecnica si adattano al ruolo dell'esercizio che scegli.</div>
+    </details>
+    <details>
+      <summary>Che cosa sono MEV, MAV e MRV?</summary>
+      <div class="a">Sono tre soglie di volume settimanale, misurate in serie allenanti per distretto. Il MEV (volume minimo efficace) è il minimo che mantiene quello che hai già; il MAV (volume adattativo massimo) è la fascia in cui la crescita è più produttiva; l'MRV (volume massimo recuperabile) è il tetto oltre il quale accumuli fatica senza ricavarne stimolo. Non sono numeri universali: variano per distretto, per persona e per quanto stai mangiando. In definizione l'MRV si abbassa, perché il recupero dipende anche dalle calorie.</div>
+    </details>
+    <details>
+      <summary>Quanto si può dimagrire a settimana senza perdere muscolo?</summary>
+      <div class="a">Intorno allo 0,5-0,8% del peso corporeo a settimana è il ritmo che la maggior parte delle persone regge senza intaccare la massa magra: su 75 kg significa circa 0,4-0,6 kg. Il generatore usa un deficit di circa 625 kcal al giorno, che corrisponde a circa 0,55 kg a settimana. Più veloce di così e i primi segnali sono i carichi che crollano nel log e la fame che diventa ingestibile.</div>
+    </details>
+    <details>
+      <summary>Quanti giorni a settimana bisogna allenarsi in definizione?</summary>
+      <div class="a">Cinque sedute a settimana è la frequenza su cui è costruito il generatore: permette di allenare i due distretti target due volte ciascuno e di tenere tutti gli altri sopra il volume di mantenimento. Meno sedute non rendono impossibile un cut, ma comprimono il volume in sessioni più lunghe e più difficili da recuperare quando si mangia poco.</div>
+    </details>
+    <details>
+      <summary>Quanto deve durare un mesociclo di specializzazione?</summary>
+      <div class="a">Da 8 a 16 settimane, con gli scarichi dentro. Sotto le 8 settimane il volume accumulato è troppo poco perché la specializzazione si veda; oltre le 16 la fatica si accumula più in fretta di quanto il deficit permetta di smaltirla. Finito il blocco si cambiano i due target, così ogni distretto ha il suo turno nell'arco dell'anno.</div>
+    </details>
+    <details>
+      <summary>Meglio cardio o passi per dimagrire?</summary>
+      <div class="a">I passi, nella maggior parte dei casi. Il NEAT (l'attività non sportiva della giornata) muove più calorie del cardio strutturato e costa molto meno recupero, che in deficit è la risorsa scarsa. Il piano di riferimento è 15.000 passi al giorno. Il cardio non è vietato: semplicemente compete con l'allenamento con i pesi per lo stesso recupero.</div>
+    </details>
+    <details>
+      <summary>Il programma va bene per le donne?</summary>
+      <div class="a">Sì. Il calcolo di metabolismo basale e dispendio usa la formula Mifflin-St Jeor con il coefficiente per sesso, quindi calorie e macro escono tarati sui tuoi dati. La struttura dell'allenamento non cambia: cambiano i distretti che sceglierai come target, e glutei e femorali sono fra i dieci disponibili.</div>
     </details>
     <details>
       <summary>Serve installare qualcosa?</summary>

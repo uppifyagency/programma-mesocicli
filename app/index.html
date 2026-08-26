@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Genera il tuo mesociclo di specializzazione · Programma Mesocicli</title>
-<meta name="description" content="Genera il tuo mesociclo di specializzazione: scegli due distretti target e ottieni 5 sedute complete, volumi contro MEV/MAV/MRV e piano nutrizionale. Gratis, senza account.">
+<title>Generatore di mesocicli: scheda palestra 5 giorni in cut | Programma Mesocicli</title>
+<meta name="description" content="Genera la scheda: due distretti target, 5 sedute a settimana con serie, ripetizioni e recuperi, volumi confrontati con MEV, MAV e MRV e piano calorico. Gratis, senza account.">
 <link rel="canonical" href="https://programma-mesocicli.vercel.app/app/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="author" content="Programma Mesocicli">
+<link rel="alternate" hreflang="it-IT" href="https://programma-mesocicli.vercel.app/app/">
+<link rel="alternate" hreflang="x-default" href="https://programma-mesocicli.vercel.app/app/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F3F5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
@@ -24,10 +28,21 @@
 <meta name="twitter:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="preload" href="../assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/barlow-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/barlow-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-condensed-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/barlow-condensed-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/barlow-condensed-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/ibm-plex-mono-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face{font-family:"Barlow Condensed Fallback";src:local("Arial Narrow");size-adjust:88%;}
 :root{
   --bg:#F1F3F5; --surface:#FFFFFF; --surface2:#E9ECEF; --ink:#161B22; --ink2:#4A545E; --ink3:#5D6873;
@@ -125,13 +140,89 @@ td.num, th.num{text-align:right; font-family:"IBM Plex Mono",monospace; font-var
 ul.tight{margin:8px 0 0; padding-left:18px; font-size:.88rem; color:var(--ink2);}
 ul.tight li{margin-top:4px;}
 .footer{margin-top:22px; color:var(--ink3); font-size:.8rem; border-top:1px solid var(--line); padding-top:10px; max-width:80ch;}
+.params-static{width:100%; border-collapse:collapse; margin:10px 0 6px; font-size:.9rem;}
+.params-static th{text-align:left; padding:8px 10px; border-bottom:2px solid currentColor; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em;}
+.params-static td{padding:8px 10px; border-bottom:1px solid rgba(128,128,128,.28);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://programma-mesocicli.vercel.app/app/#webpage",
+      "url": "https://programma-mesocicli.vercel.app/app/",
+      "name": "Generatore di mesocicli: scheda palestra 5 giorni in cut",
+      "inLanguage": "it-IT",
+      "isPartOf": {
+        "@id": "https://programma-mesocicli.vercel.app/#website"
+      },
+      "dateModified": "2026-08-26",
+      "mainEntity": {
+        "@id": "https://programma-mesocicli.vercel.app/#app"
+      },
+      "breadcrumb": {
+        "@id": "https://programma-mesocicli.vercel.app/app/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://programma-mesocicli.vercel.app/app/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Programma Mesocicli",
+          "item": "https://programma-mesocicli.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Generatore",
+          "item": "https://programma-mesocicli.vercel.app/app/"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
+      "@id": "https://programma-mesocicli.vercel.app/#app",
+      "name": "Programma Mesocicli",
+      "url": "https://programma-mesocicli.vercel.app/app/",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Fitness",
+      "operatingSystem": "Qualsiasi browser web",
+      "browserRequirements": "Richiede JavaScript",
+      "inLanguage": "it-IT",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "license": "https://github.com/uppifyagency/programma-mesocicli/blob/main/LICENSE",
+      "codeRepository": "https://github.com/uppifyagency/programma-mesocicli",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://programma-mesocicli.vercel.app/#organization",
+        "name": "Programma Mesocicli",
+        "url": "https://programma-mesocicli.vercel.app/"
+      },
+      "description": "Genera un mesociclo di specializzazione di 8, 12 o 16 settimane: due distretti target, cinque sedute a settimana con serie, ripetizioni, ripetizioni efficaci e recuperi, volumi confrontati con MEV, MAV e MRV e piano calorico dai tuoi dati."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#out">Salta al contenuto</a>
 <div class="wrap">
 <header class="site">
-  <h1>Programma Mesocicli</h1>
+  <h1>Generatore di mesocicli di specializzazione</h1>
   <span class="tag">Mesocicli di specializzazione</span>
   <div class="sub">Scegli due distretti target e ottieni il mesociclo: 5 sedute, volume fisso, RPE 10, effective reps, double progression sul log. Ogni esercizio si può cambiare dal menu, con alternative per lo stesso distretto raggruppate per ruolo.</div>
 </header>
@@ -180,6 +271,48 @@ ul.tight li{margin-top:4px;}
 
   <main id="out"></main>
 </div>
+
+
+<section id="cosa-genera" class="panel" style="margin-top:22px">
+  <h2>Che cosa genera questo strumento?</h2>
+  <p class="note">Un mesociclo completo di 8, 12 o 16 settimane con due distretti target: cinque sedute a settimana, ogni esercizio con serie, range di ripetizioni, ripetizioni efficaci e recupero, più il volume settimanale di ogni distretto confrontato con le sue soglie di riferimento. Il risultato si costruisce nel browser dai dati che inserisci: nulla viene inviato a un server.</p>
+
+  <h3>I dieci distretti selezionabili</h3>
+  <p class="note">Petto, dorso, delt laterali e posteriori, bicipiti, tricipiti, quadricipiti, femorali, glutei, polpacci, addome. Se ne scelgono due per blocco: quelli spingono verso il volume più produttivo, gli altri restano al volume che mantiene.</p>
+
+  <h3>I parametri per ruolo</h3>
+  <table class="params-static">
+    <caption class="sr-only">Serie, ripetizioni, ripetizioni efficaci e recupero per ciascun ruolo dell'esercizio</caption>
+    <thead><tr><th scope="col">Ruolo</th><th scope="col">Serie × reps</th><th scope="col">ER</th><th scope="col">Recupero</th><th scope="col">Tecnica</th></tr></thead>
+    <tbody>
+      <tr><td>Esercizio madre</td><td>4 × 6-8</td><td>20</td><td>1,5-3′</td><td>—</td></tr>
+      <tr><td>Meccanici</td><td>3 × 8-10</td><td>15</td><td>1,5-3′</td><td>—</td></tr>
+      <tr><td>Isolamenti</td><td>3 × 10-12</td><td>15</td><td>60-90″</td><td>SQUEEZE</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Le soglie di volume, in serie a settimana</h3>
+  <table class="params-static">
+    <caption class="sr-only">Volumi di riferimento settimanali per distretto</caption>
+    <thead><tr><th scope="col">Distretto</th><th scope="col">MEV</th><th scope="col">MAV</th><th scope="col">MRV</th></tr></thead>
+    <tbody>
+      <tr><td>Petto</td><td>8</td><td>15</td><td>22</td></tr>
+      <tr><td>Dorso</td><td>10</td><td>16</td><td>25</td></tr>
+      <tr><td>Delt laterali/posteriori</td><td>6</td><td>13</td><td>26</td></tr>
+      <tr><td>Bicipiti</td><td>6</td><td>13</td><td>26</td></tr>
+      <tr><td>Tricipiti</td><td>6</td><td>13</td><td>20</td></tr>
+      <tr><td>Quadricipiti</td><td>8</td><td>15</td><td>20</td></tr>
+      <tr><td>Femorali</td><td>4</td><td>10</td><td>20</td></tr>
+      <tr><td>Glutei</td><td>0</td><td>10</td><td>20</td></tr>
+      <tr><td>Polpacci</td><td>10</td><td>22</td><td>26</td></tr>
+      <tr><td>Addome</td><td>0</td><td>25</td><td>28</td></tr>
+    </tbody>
+  </table>
+  <p class="note">MEV è il minimo che mantiene, MAV la zona più produttiva, MRV il tetto recuperabile. In definizione l'MRV si abbassa, perché il recupero dipende anche dalle calorie. <a href="../#metodologia">Le formule e le fonti</a> stanno sulla pagina del metodo.</p>
+
+  <h3>Come si progredisce</h3>
+  <p class="note">Double progression sul log: si registrano carico, ripetizioni totali e RPE di ogni esercizio, e la settimana dopo si batte il log. Prima salgono le ripetizioni dentro il range, poi sale il carico. Con lo scarico programmato attivo, le ultime settimane vanno a buffer sulle ripetizioni invece che a RPE 10.</p>
+</section>
 
 <div class="footer">Le tacche MEV, MAV e MRV nel tally sono volumi di riferimento indicativi per distretto. I parametri di ogni riga (reps, ER, rest, tecnica) seguono il ruolo dell'esercizio scelto. Non è una prescrizione medica: i carichi li decide il tuo log. · <a href="../" style="color:inherit">Programma Mesocicli · il metodo</a> · <a href="https://github.com/uppifyagency/programma-mesocicli" style="color:inherit" rel="noopener">Codice sorgente</a></div>
 </div>

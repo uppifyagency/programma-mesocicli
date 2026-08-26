@@ -1,17 +1,38 @@
 # Programma Mesocicli
 
-> Programma di cut open source (MIT), in italiano. Web app statica senza account e senza backend: inserisci eta, peso, altezza, sesso e attivita quotidiana, ottieni le calorie della definizione, i macronutrienti e il mesociclo di allenamento completo. I dati restano nel browser.
+> Programma di cut open source (licenza MIT), in italiano. Web app statica senza account e senza backend: inserisci età, peso, altezza, sesso e attività quotidiana e ottieni le calorie della definizione, i macronutrienti e il mesociclo di allenamento completo. I dati restano nel browser, nessuna richiesta a terzi.
 
 ## Il calcolo alimentare
 
-Metabolismo basale con la formula Mifflin-St Jeor, moltiplicato per il fattore di attivita dichiarato (da 1,2 sedentario a 1,9 attivita pesante quotidiana) per ottenere il dispendio totale. Il deficit di riferimento e di circa 625 kcal al giorno, che corrisponde a una perdita attesa intorno a 0,55 kg a settimana, ma il target non scende mai sotto il metabolismo basale: su soggetti leggeri il deficit viene ridotto e la pagina lo dichiara. La media settimanale resta la prescrizione: i giorni feriali stanno 170 kcal piu bassi e il weekend compensa. Proteine 2,0 g/kg, grassi 0,75 g/kg, il resto ai carboidrati.
+Metabolismo basale con la formula Mifflin-St Jeor (Mifflin MD, St Jeor ST et al., American Journal of Clinical Nutrition, 1990;51(2):241-247), moltiplicato per il fattore di attività dichiarato (da 1,2 sedentario a 1,9 attività pesante quotidiana) per ottenere il dispendio totale. Il deficit di riferimento è di circa 625 kcal al giorno, che corrisponde a una perdita attesa intorno a 0,55 kg a settimana, sotto lo 0,8% del peso corporeo settimanale indicato come soglia di sicurezza per la massa magra (Garthe I et al., Int. J. of Sport Nutrition and Exercise Metabolism, 2011;21(2):97-104). Il target non scende mai sotto il metabolismo basale: su soggetti leggeri il deficit viene ridotto e la pagina lo dichiara. La media settimanale resta la prescrizione: i giorni feriali stanno 170 kcal più bassi e il weekend compensa. Proteine 2,0 g/kg (Morton RW et al., British Journal of Sports Medicine, 2018;52(6):376-384), grassi 0,75 g/kg, il resto ai carboidrati. NEAT di riferimento 15.000 passi al giorno.
 
 ## L'allenamento
 
-Si scelgono due distretti muscolari target per un blocco di 8, 12 o 16 settimane; il volume dei target sale verso il massimo produttivo (con riferimenti MEV/MAV/MRV per distretto), il resto del corpo resta al volume di mantenimento, perche in deficit calorico il recupero e la risorsa scarsa. Cinque sedute a settimana, ogni esercizio ha un ruolo: madre 4x6-8 con 20 ripetizioni efficaci, meccanici 3x8-10 con 15, isolamenti 3x10-12 con squeeze. Ogni riga della scheda e un menu di alternative per lo stesso distretto. La progressione e double progression sul log: carico, ripetizioni totali e RPE registrati, e la settimana successiva si batte il log.
+Si scelgono due distretti muscolari target per un blocco di 8, 12 o 16 settimane. Il volume dei target sale verso il massimo produttivo, il resto del corpo resta al volume di mantenimento, perché in deficit calorico il recupero è la risorsa scarsa (relazione dose-risposta volume/ipertrofia: Schoenfeld BJ, Ogborn D, Krieger JW, Journal of Sports Sciences, 2017;35(11):1073-1082). Cinque sedute a settimana. Ogni esercizio ha un ruolo: madre 4×6-8 con 20 ripetizioni efficaci e recupero 1,5-3 minuti; meccanici 3×8-10 con 15 ripetizioni efficaci; isolamenti 3×10-12 con squeeze e recupero 60-90 secondi. Ogni riga della scheda è un menu di alternative per lo stesso distretto, raggruppate per ruolo. La progressione è double progression sul log: si registrano carico, ripetizioni totali e RPE, e la settimana successiva si batte il log — prima più ripetizioni dentro il range, poi più carico.
+
+## Volumi di riferimento (serie allenanti a settimana)
+
+MEV è il volume minimo efficace (il minimo che mantiene), MAV il volume adattativo massimo (la fascia più produttiva), MRV il volume massimo recuperabile (il tetto). In definizione l'MRV si abbassa, perché il recupero dipende anche dalle calorie.
+
+| Distretto | MEV | MAV | MRV |
+|---|---|---|---|
+| Petto | 8 | 15 | 22 |
+| Dorso | 10 | 16 | 25 |
+| Delt laterali/posteriori | 6 | 13 | 26 |
+| Bicipiti | 6 | 13 | 26 |
+| Tricipiti | 6 | 13 | 20 |
+| Quadricipiti | 8 | 15 | 20 |
+| Femorali | 4 | 10 | 20 |
+| Glutei | 0 | 10 | 20 |
+| Polpacci | 10 | 22 | 26 |
+| Addome | 0 | 25 | 28 |
+
+## Limiti dichiarati
+
+Una stima da formula sbaglia di ±10-15% sul singolo individuo. Il numero è un punto di partenza: dopo due settimane di pesate conta la variazione sulla bilancia. Lo strumento non stima la percentuale di grasso corporeo, non promette ricomposizione a chi si allena da anni e non sostituisce un medico o un nutrizionista.
 
 ## Pagine
 
-- [Landing](https://programma-mesocicli.vercel.app/): il calcolatore del cut, il metodo, le FAQ
-- [App](https://programma-mesocicli.vercel.app/app/): il generatore completo, accetta i dati in querystring (sesso, eta, peso, alt, mult, target, dur)
+- [Landing](https://programma-mesocicli.vercel.app/): calcolatore del cut, metodo, tabella dei volumi, metodologia con le fonti, 14 domande frequenti
+- [Generatore](https://programma-mesocicli.vercel.app/app/): l'app completa; accetta i dati in querystring (sesso, eta, peso, alt, mult, target, dur)
 - [Repository](https://github.com/uppifyagency/programma-mesocicli): codice sorgente, licenza MIT

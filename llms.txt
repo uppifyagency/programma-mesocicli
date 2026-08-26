@@ -12,6 +12,6 @@ Si scelgono due distretti muscolari target per un blocco di 8, 12 o 16 settimane
 
 ## Pagine
 
-- [Landing](https://uppifyagency.github.io/programma-mesocicli/): il calcolatore del cut, il metodo, le FAQ
-- [App](https://uppifyagency.github.io/programma-mesocicli/app/): il generatore completo, accetta i dati in querystring (sesso, eta, peso, alt, mult, target, dur)
+- [Landing](https://programma-mesocicli.vercel.app/): il calcolatore del cut, il metodo, le FAQ
+- [App](https://programma-mesocicli.vercel.app/app/): il generatore completo, accetta i dati in querystring (sesso, eta, peso, alt, mult, target, dur)
 - [Repository](https://github.com/uppifyagency/programma-mesocicli): codice sorgente, licenza MIT

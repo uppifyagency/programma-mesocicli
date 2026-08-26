@@ -2,7 +2,7 @@
 
 Programma di cut open source. Inserisci eta, peso, altezza, sesso e attivita quotidiana: ottieni le calorie della definizione, i macro e il mesociclo completo di allenamento. 5 sedute a settimana con esercizi intercambiabili, volumi confrontati con MEV/MAV/MRV, striscia delle settimane con gli scarichi.
 
-**Sito e app:** https://uppifyagency.github.io/programma-mesocicli/
+**Sito e app:** https://programma-mesocicli.vercel.app/
 
 ## Il metodo in breve
 
@@ -46,10 +46,14 @@ vercel.json       header e cache per il deploy su Vercel
 
 ## Deploy
 
-Il sito e statico, quindi qualunque host va bene.
+Il sito e statico: la build su Vercel non fa nulla, carica la root.
 
-- **GitHub Pages:** attivo dal branch `main`, cartella root.
-- **Vercel:** importa il repository, framework preset "Other", nessun build command, output directory la root. `vercel.json` imposta gli header di sicurezza e la cache degli asset.
+- **Online su https://programma-mesocicli.vercel.app** (progetto Vercel `programma-mesocicli`).
+  Si pubblica con `npx vercel deploy --prod` dalla cartella del repo.
+- `vercel.json` imposta gli header di sicurezza e la cache degli asset.
+- Un solo hostname serve il sito. GitHub Pages e stato spento: due copie dello stesso
+  contenuto si fanno concorrenza in indicizzazione. Canonical, `og:url`, `sitemap.xml`,
+  `robots.txt` e `llms.txt` puntano tutti al dominio Vercel.
 
 ## Licenza
 

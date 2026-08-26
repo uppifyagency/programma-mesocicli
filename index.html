@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programma di cut: calorie, macro e scheda in 5 sedute | Programma Mesocicli</title>
-<meta name="description" content="Calcola le calorie della definizione da età, peso, altezza e attività, poi genera il mesociclo: 8-16 settimane, 5 sedute, due distretti target, volumi contro MEV/MAV/MRV. Gratis, senza account.">
+<title>Calcolo fabbisogno calorico e scheda per la definizione</title>
+<meta name="description" content="Calcola metabolismo basale, fabbisogno calorico giornaliero (TDEE), deficit e macronutrienti dai tuoi dati, poi genera la scheda di definizione: 5 sedute a settimana, 8-16 settimane. Gratis, senza account.">
 <link rel="canonical" href="https://programma-mesocicli.vercel.app/">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="author" content="Programma Mesocicli">
@@ -14,8 +14,8 @@
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13171C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programma Mesocicli">
-<meta property="og:title" content="Programma di cut: calorie, macro e scheda in 5 sedute">
-<meta property="og:description" content="Età, peso, altezza, attività: calorie della definizione, macro e mesociclo di specializzazione in cinque sedute. Open source, senza account.">
+<meta property="og:title" content="Calcolo fabbisogno calorico e scheda per la definizione">
+<meta property="og:description" content="Metabolismo basale, fabbisogno calorico giornaliero, deficit e macronutrienti dai tuoi dati, più la scheda di definizione in cinque sedute. Gratis, senza account.">
 <meta property="og:url" content="https://programma-mesocicli.vercel.app/">
 <meta property="og:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
 <meta property="og:image:alt" content="Programma Mesocicli: calorie del cut dai tuoi dati, due distretti target, cinque sedute">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Programma di cut: calorie, macro e scheda in 5 sedute">
+<meta name="twitter:title" content="Calcolo fabbisogno calorico e scheda per la definizione">
 <meta name="twitter:description" content="Calorie della definizione dai tuoi dati più il mesociclo di specializzazione: 5 sedute, esercizi intercambiabili, volumi e macro.">
 <meta name="twitter:image" content="https://programma-mesocicli.vercel.app/assets/og.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -62,7 +62,7 @@
       "@type": "WebPage",
       "@id": "https://programma-mesocicli.vercel.app/#webpage",
       "url": "https://programma-mesocicli.vercel.app/",
-      "name": "Programma di cut: calorie, macro e scheda in 5 sedute",
+      "name": "Calcolo fabbisogno calorico e scheda per la definizione",
       "isPartOf": {
         "@id": "https://programma-mesocicli.vercel.app/#website"
       },
@@ -117,6 +117,22 @@
         {
           "@type": "Thing",
           "name": "NEAT"
+        },
+        {
+          "@type": "Thing",
+          "name": "Metabolismo basale (BMR)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Fabbisogno calorico giornaliero (TDEE)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Deficit calorico"
+        },
+        {
+          "@type": "Thing",
+          "name": "Macronutrienti"
         }
       ],
       "citation": [
@@ -319,6 +335,46 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). Reps, ER, recupero e tecnica si adattano al ruolo dell'esercizio che scegli."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual è la differenza tra BMR e TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il BMR è quello che consumi da fermo, il TDEE è quello che consumi vivendo la tua giornata. Il metabolismo basale (BMR, Basal Metabolic Rate) è l'energia che il corpo brucia a riposo assoluto per tenere in funzione cuore, respiro, cervello e temperatura. Il fabbisogno calorico giornaliero (TDEE, Total Daily Energy Expenditure) è il BMR moltiplicato per un fattore che tiene conto di quanto ti muovi: lavoro, camminate, allenamento, digestione. Nel calcolatore in cima alla pagina vedi entrambi i numeri: il deficit si sottrae dal TDEE, mai dal BMR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual è il deficit calorico consigliato per dimagrire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fra il 15% e il 25% del fabbisogno giornaliero, che per la maggior parte delle persone significa 400-700 kcal al giorno. Il calcolatore usa circa 625 kcal come riferimento, che corrisponde a una perdita intorno a 0,55 kg a settimana. Deficit più aggressivi fanno scendere il peso più in fretta ma costano massa magra, fame e carichi in palestra: il segnale che sei andato troppo giù è il log che crolla su tutti gli esercizi insieme. Il target calorico non deve mai finire sotto il metabolismo basale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si fa ad andare in deficit calorico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si calcola il fabbisogno giornaliero e si mangia stabilmente sotto quel numero, misurando il risultato sulla bilancia. In pratica: calcoli il TDEE dai tuoi dati, sottrai il deficit, distribuisci le calorie in macronutrienti (qui proteine 2 g/kg, grassi 0,75 g/kg, il resto ai carboidrati) e dopo due settimane confronti la variazione di peso con quella attesa. Se il peso non si muove il deficit reale non c'è, indipendentemente da cosa dice la formula: si corregge sul dato, non sul calcolo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si calcolano i macronutrienti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prima si fissano proteine e grassi in base al peso corporeo, poi i carboidrati riempiono le calorie che restano. Qui le proteine stanno a 2 g per kg di peso e i grassi a 0,75 g per kg; moltiplicando per 4 kcal al grammo le proteine, 9 kcal i grassi e sottraendo dal totale, quello che avanza diviso 4 dà i grammi di carboidrati. È il motivo per cui i carboidrati sono il macro che si muove quando cambia il deficit: proteine e grassi hanno un pavimento, loro no."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanti kg si perdono in definizione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dipende da quanto dura il blocco e da quanto grasso c'è da perdere, ma il ritmo sostenibile è intorno allo 0,5-0,8% del peso corporeo a settimana. Su 80 kg significa 0,4-0,65 kg a settimana, cioè 5-10 kg in un blocco di 12-16 settimane. La prima settimana il calo è quasi sempre più marcato per l'acqua e il glicogeno, e non va letto come grasso perso: il dato che conta è la media sulle due settimane."
           }
         },
         {
@@ -542,8 +598,8 @@ footer.site a{color:var(--ink2)}
   <div class="hero">
     <div>
       <div class="kicker">Programma di cut · open source</div>
-      <h1>Programma di cut:<br>calorie dai tuoi dati, cinque sedute,<br><span style="color:var(--accent)">un log da battere.</span></h1>
-      <p class="lead">Metti età, peso, altezza e quanto ti muovi in una giornata: da lì escono le calorie della definizione, i macro in grammi e il mesociclo completo di 8, 12 o 16 settimane. Due distretti tengono il volume alto, il resto del corpo resta al minimo che mantiene, e ogni seduta arriva già scritta con serie, ripetizioni e recuperi.</p>
+      <h1>Calcola il fabbisogno calorico,<br>poi genera la scheda:<br><span style="color:var(--accent)">un log da battere.</span></h1>
+      <p class="lead">Metti età, peso, altezza e quanto ti muovi in una giornata: da lì escono il metabolismo basale, il fabbisogno calorico giornaliero (TDEE), il deficit della definizione, i macronutrienti in grammi e il mesociclo completo di 8, 12 o 16 settimane. Due distretti tengono il volume alto, il resto del corpo resta al minimo che mantiene, e ogni seduta arriva già scritta con serie, ripetizioni e recuperi.</p>
       <div class="cta">
         <a class="btn" href="#calcola">Calcola il tuo cut</a>
         <a class="btn ghost" href="app/">Vai al generatore</a>
@@ -702,7 +758,7 @@ footer.site a{color:var(--ink2)}
 
   <section id="nutrizione" aria-labelledby="h-nutrizione">
     <div class="eyebrow">Nutrizione</div>
-    <h2 id="h-nutrizione">Quante calorie servono per la definizione?</h2>
+    <h2 id="h-nutrizione">Come si calcola il fabbisogno calorico per la definizione?</h2>
     <p class="lead-a">Il dispendio totale meno circa 625 kcal al giorno, cioè una perdita attesa intorno a 0,55 kg a settimana. Il target non scende mai sotto il metabolismo basale.</p>
     <div class="split">
       <div>
@@ -833,6 +889,26 @@ footer.site a{color:var(--ink2)}
     <details>
       <summary>Posso cambiare gli esercizi proposti?</summary>
       <div class="a">Sì. Ogni riga della scheda è un menu con alternative per lo stesso distretto, raggruppate per ruolo (madre, meccanici, isolamento). Reps, ER, recupero e tecnica si adattano al ruolo dell'esercizio che scegli.</div>
+    </details>
+    <details>
+      <summary>Qual è la differenza tra BMR e TDEE?</summary>
+      <div class="a">Il BMR è quello che consumi da fermo, il TDEE è quello che consumi vivendo la tua giornata. Il metabolismo basale (BMR, Basal Metabolic Rate) è l'energia che il corpo brucia a riposo assoluto per tenere in funzione cuore, respiro, cervello e temperatura. Il fabbisogno calorico giornaliero (TDEE, Total Daily Energy Expenditure) è il BMR moltiplicato per un fattore che tiene conto di quanto ti muovi: lavoro, camminate, allenamento, digestione. Nel calcolatore in cima alla pagina vedi entrambi i numeri: il deficit si sottrae dal TDEE, mai dal BMR.</div>
+    </details>
+    <details>
+      <summary>Qual è il deficit calorico consigliato per dimagrire?</summary>
+      <div class="a">Fra il 15% e il 25% del fabbisogno giornaliero, che per la maggior parte delle persone significa 400-700 kcal al giorno. Il calcolatore usa circa 625 kcal come riferimento, che corrisponde a una perdita intorno a 0,55 kg a settimana. Deficit più aggressivi fanno scendere il peso più in fretta ma costano massa magra, fame e carichi in palestra: il segnale che sei andato troppo giù è il log che crolla su tutti gli esercizi insieme. Il target calorico non deve mai finire sotto il metabolismo basale.</div>
+    </details>
+    <details>
+      <summary>Come si fa ad andare in deficit calorico?</summary>
+      <div class="a">Si calcola il fabbisogno giornaliero e si mangia stabilmente sotto quel numero, misurando il risultato sulla bilancia. In pratica: calcoli il TDEE dai tuoi dati, sottrai il deficit, distribuisci le calorie in macronutrienti (qui proteine 2 g/kg, grassi 0,75 g/kg, il resto ai carboidrati) e dopo due settimane confronti la variazione di peso con quella attesa. Se il peso non si muove il deficit reale non c'è, indipendentemente da cosa dice la formula: si corregge sul dato, non sul calcolo.</div>
+    </details>
+    <details>
+      <summary>Come si calcolano i macronutrienti?</summary>
+      <div class="a">Prima si fissano proteine e grassi in base al peso corporeo, poi i carboidrati riempiono le calorie che restano. Qui le proteine stanno a 2 g per kg di peso e i grassi a 0,75 g per kg; moltiplicando per 4 kcal al grammo le proteine, 9 kcal i grassi e sottraendo dal totale, quello che avanza diviso 4 dà i grammi di carboidrati. È il motivo per cui i carboidrati sono il macro che si muove quando cambia il deficit: proteine e grassi hanno un pavimento, loro no.</div>
+    </details>
+    <details>
+      <summary>Quanti kg si perdono in definizione?</summary>
+      <div class="a">Dipende da quanto dura il blocco e da quanto grasso c'è da perdere, ma il ritmo sostenibile è intorno allo 0,5-0,8% del peso corporeo a settimana. Su 80 kg significa 0,4-0,65 kg a settimana, cioè 5-10 kg in un blocco di 12-16 settimane. La prima settimana il calo è quasi sempre più marcato per l'acqua e il glicogeno, e non va letto come grasso perso: il dato che conta è la media sulle due settimane.</div>
     </details>
     <details>
       <summary>Che cosa sono MEV, MAV e MRV?</summary>
